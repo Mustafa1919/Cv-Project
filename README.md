@@ -18,6 +18,13 @@ Geliştirme sürüyor; yayınlanmış bir sürüm henüz yok.
 | `content/tool/` | İçerik denetim aracı (Node, TypeScript) |
 | `site/` | Statik site (Astro) ve tarayıcı testleri |
 | `deploy/local/` | Yereldeki bağımlılıklar (PostgreSQL, Redis) |
+| `deploy/docker/` | Servis ve göç imajlarının `Dockerfile`'ları |
+| `deploy/prod/` | Üretim Compose dosyası, izleme yığını ayarları, Compose denetimi |
+| `deploy/postgres/` | Veritabanı göçleri (Flyway, yalnızca ileri yönlü) |
+| `deploy/server/` | Sunucu kurulumu, gizli değer üretimi, sürüm uygulama |
+| `deploy/measure/` | Sütun 0 ölçüm araçları |
+| `deploy/cloudflare/` | Cloudflare kurulum adımları |
+| `.github/workflows/` | CI ve site yayını iş akışları |
 | `docs/vitrin/` | Tasarım dokümanları ve karar kayıtları |
 
 ## Gerekenler
@@ -89,7 +96,7 @@ onaylanır.
 ```
 npx playwright install chromium   # bir kez
 npm run typecheck
-npm run build      # içeriği denetler, derler, güvenlik başlıklarını (dist/_headers) yazar
+npm run build      # içeriği denetler, derler, güvenlik başlıklarını (dist/_headers) yazar, PDF'leri üretir
 npm run serve      # dist klasörünü http://127.0.0.1:4173 adresinde sunar
 npm test           # derler ve tarayıcı testlerini koşar; sayı expected-tests.json ile aynı olmalıdır
 ```
@@ -100,6 +107,13 @@ npm test           # derler ve tarayıcı testlerini koşar; sayı expected-test
 | `PUBLIC_VITRIN_API_ORIGIN` | `http://localhost:8080` | Durum rozetinin sorduğu API adresi |
 | `VITRIN_CONTENT_DIR` | `sample-content` | Derlenecek içerik |
 | `VITRIN_NOINDEX` | yok | `1` ise sayfalar dizine girmez (önizleme yayınları) |
+
+Özgeçmiş PDF'i (`dist/cv.pdf`, `dist/en/cv.pdf`) derlemenin son adımında, yazdırma sayfalarından
+(`/cv/`, `/en/cv/`) başsız Chromium ile üretilir. Tek sayfaya sığmayan ya da yazı tipi gömülmeyen
+çıktı derlemeyi kırar. PDF depoya girmez.
+
+Performans bütçesi: `npx lhci autorun` (ayar `site/lighthouserc.json`; Chrome yolu `CHROME_PATH`
+ile verilir).
 
 ## Yerelde çalıştırma
 
@@ -127,3 +141,52 @@ Servisler (her biri ayrı terminalde). Profil vermek zorunludur; profilsiz servi
 | search | 8082 | 9082 |
 
 Sağlık denetimi yönetim portundadır, örneğin `http://localhost:9081/actuator/health/readiness`.
+
+## CI ve yerelde aynı denetimler
+
+Uzak depo açılana kadar CI koşmaz. Aynı komutlar ve aynı araç imajları yerelde çalışır (Docker gerekir):
+
+```
+deploy/ci-local.sh                 # hepsi: lint secrets backend site images compose
+deploy/ci-local.sh lint secrets    # yalnızca seçilen adımlar
+```
+
+| Adım | Ne yapar |
+|---|---|
+| `lint` | `actionlint`, `shellcheck` |
+| `secrets` | gitleaks, bütün geçmişte; kabul edilen yanlış alarmlar `.gitleaksignore` içinde, gerekçesiyle |
+| `backend` | `./gradlew build`, önbelleksiz |
+| `site` | içerik aracı ve site: tip denetimi, testler, Lighthouse bütçesi, npm bağımlılık taraması |
+| `images` | dört imajı derler, Trivy ile tarar (kritik ve yüksek açık kırar), malzeme listesi yazar (`build/sbom/`) |
+| `compose` | üretim Compose dosyasının kurallarını denetler (`deploy/prod/check-compose.sh`) |
+
+Açık bastırması `.trivyignore.yaml` içine, açık kimliği ve paket bazında, gerekçesiyle yazılır.
+
+## Yayınlama
+
+Karar kaydı: `docs/vitrin/kararlar/KK-011-ci-ve-yayinlama.md`. Sunucu ve Cloudflare kurulumu:
+`deploy/server/setup.sh`, `deploy/cloudflare/README.md`.
+
+```
+cp deploy/release.conf.example deploy/release.conf   # bir kez; doldurulur, depoya girmez
+deploy/release.sh <sha>        # CI sonucu, imza, sunucuya uygulama, duman testi, site
+deploy/release.sh --rollback   # önceki sürüme dön
+deploy/release.sh --status
+```
+
+Sunucu olmadan prova (yerelde derlenmiş imajlarla, aynı Compose dosyası ve aynı `apply.sh`):
+
+```
+deploy/server/secrets.sh "$VITRIN_REHEARSAL_HOME/secrets"
+deploy/ci-local.sh backend images
+VITRIN_REHEARSAL_HOME=<boş bir klasör> deploy/release.sh --local <kısa sha>
+deploy/smoke.sh --only api --api http://127.0.0.1:18080 --origin http://127.0.0.1:4173
+```
+
+Prova gateway'i `127.0.0.1:18080`, Grafana'yı `127.0.0.1:13000` adresinde açar; üretim dosyasında
+yayınlanan port yoktur.
+
+## Ölçümler
+
+Araçlar `deploy/measure/` altındadır; karar kuralları ve sonuçlar `docs/vitrin/olcumler/README.md`
+içindedir. Her araç ham çıktıyı `measurements/` altına yazar (depoya girmez).

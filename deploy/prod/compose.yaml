@@ -1,0 +1,375 @@
+name: vitrin
+
+x-runtime: &runtime
+  restart: unless-stopped
+  pids_limit: 128
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  stop_grace_period: 30s
+  logging:
+    driver: json-file
+    options:
+      max-size: 10m
+      max-file: "3"
+  networks:
+    - backend
+
+x-jvm: &jvm
+  <<: *runtime
+  user: "10001:10001"
+  pids_limit: 256
+  tmpfs:
+    - /tmp:size=64m,mode=1777
+
+x-jvm-environment: &jvm-environment
+  SPRING_PROFILES_ACTIVE: prod
+  JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=65 -XX:+ExitOnOutOfMemoryError"
+  MANAGEMENT_OTLP_METRICS_EXPORT_ENABLED: "true"
+  MANAGEMENT_OTLP_METRICS_EXPORT_URL: http://otelcol:4318/v1/metrics
+  MANAGEMENT_OPENTELEMETRY_TRACING_EXPORT_OTLP_ENDPOINT: http://otelcol:4318/v1/traces
+  MANAGEMENT_OPENTELEMETRY_LOGGING_EXPORT_OTLP_ENDPOINT: http://otelcol:4318/v1/logs
+
+# Set by apply.sh from the content of ./observability; a change recreates these services.
+x-observability-labels: &observability-labels
+  vitrin.config-hash: ${VITRIN_OBSERVABILITY_CONFIG_HASH:-unset}
+
+x-health: &health
+  interval: 10s
+  timeout: 3s
+  retries: 6
+  start_period: 60s
+
+services:
+  gateway:
+    <<: *jvm
+    image: ${VITRIN_GATEWAY_IMAGE:?set by the release script}
+    mem_limit: 512m
+    environment:
+      <<: *jvm-environment
+      VITRIN_SITE_ORIGIN: ${VITRIN_SITE_ORIGIN:?required in production}
+      VITRIN_RATELIMIT_ADDRESS_HASH_KEY_FILE: /run/secrets/address-hash.key
+      VITRIN_GATEWAY_CORE_BASE_URL: http://core:8081
+      VITRIN_GATEWAY_CORE_HEALTH_URL: http://core:9081/actuator/health/readiness
+      VITRIN_GATEWAY_SEARCH_HEALTH_URL: http://search:9082/actuator/health/readiness
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: "6379"
+      SPRING_CONFIG_IMPORT: optional:configtree:/run/configtree/
+    secrets:
+      - address-hash.key
+      - source: redis-password
+        target: /run/configtree/spring.data.redis.password
+    # Backend outages must not prevent the gateway from serving 503 responses.
+    depends_on:
+      redis:
+        condition: service_started
+    healthcheck:
+      <<: *health
+      test:
+        - CMD
+        - bash
+        - -c
+        - |
+          set -euo pipefail
+          exec 3<>/dev/tcp/127.0.0.1/9080
+          printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3
+          IFS= read -r status <&3
+          [[ "$$status" == *" 200 "* ]]
+
+  core:
+    <<: *jvm
+    image: ${VITRIN_CORE_IMAGE:?set by the release script}
+    mem_limit: 768m
+    environment:
+      <<: *jvm-environment
+      VITRIN_IDENTITY_SIGNING_KEY_FILE: /run/secrets/signing-key.pem
+    secrets:
+      - signing-key.pem
+    healthcheck:
+      <<: *health
+      test:
+        - CMD
+        - bash
+        - -c
+        - |
+          set -euo pipefail
+          exec 3<>/dev/tcp/127.0.0.1/9081
+          printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3
+          IFS= read -r status <&3
+          [[ "$$status" == *" 200 "* ]]
+
+  search:
+    <<: *jvm
+    image: ${VITRIN_SEARCH_IMAGE:?set by the release script}
+    mem_limit: 512m
+    environment:
+      <<: *jvm-environment
+    healthcheck:
+      <<: *health
+      test:
+        - CMD
+        - bash
+        - -c
+        - |
+          set -euo pipefail
+          exec 3<>/dev/tcp/127.0.0.1/9082
+          printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3
+          IFS= read -r status <&3
+          [[ "$$status" == *" 200 "* ]]
+
+  postgres:
+    <<: *runtime
+    image: postgres:18.6-alpine@sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873
+    user: "70:70"
+    mem_limit: 2g
+    pids_limit: 256
+    stop_grace_period: 60s
+    shm_size: 256m
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: vitrin
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres-superuser-password
+      POSTGRES_INITDB_ARGS: "--data-checksums --auth-host=scram-sha-256"
+    command:
+      - postgres
+      - -c
+      - shared_buffers=512MB
+      - -c
+      - max_connections=50
+      - -c
+      - password_encryption=scram-sha-256
+    tmpfs:
+      # The non-root server must own its socket directory.
+      - /var/run/postgresql:size=64m,uid=70,gid=70,mode=0775
+      - /tmp:size=64m,mode=1777
+    volumes:
+      - postgres-data:/var/lib/postgresql
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    secrets:
+      - postgres-superuser-password
+      - postgres-migrate-password
+      - postgres-app-password
+    healthcheck:
+      <<: *health
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "vitrin"]
+
+  redis:
+    <<: *runtime
+    image: redis:8.10.2-alpine@sha256:3811787313eba226a2ef38658c6ccb91cd5e110edc89c37767de373120a0e5a0
+    user: "999:1000"
+    mem_limit: 300m
+    # Silent eviction would weaken rate limiting.
+    command:
+      - redis-server
+      - --aclfile
+      - /run/secrets/redis.acl
+      - --maxmemory
+      - 200mb
+      - --maxmemory-policy
+      - noeviction
+      - --appendonly
+      - "yes"
+      - --appendfsync
+      - everysec
+      - --dir
+      - /data
+    volumes:
+      - redis-data:/data
+    secrets:
+      - redis.acl
+      - redis-password
+    healthcheck:
+      <<: *health
+      test:
+        - CMD-SHELL
+        - |
+          set -eu
+          REDISCLI_AUTH="$$(cat /run/secrets/redis-password)"
+          export REDISCLI_AUTH
+          reply="$$(redis-cli ping)"
+          printf '%s\n' "$$reply"
+          [ "$$reply" = PONG ]
+
+  migrate:
+    <<: *runtime
+    image: ${VITRIN_MIGRATE_IMAGE:?set by the release script}
+    profiles: [migrate]
+    user: "10001:10001"
+    restart: "no"
+    mem_limit: 256m
+    environment:
+      FLYWAY_URL: jdbc:postgresql://postgres:5432/vitrin
+      FLYWAY_USER: vitrin_migrate
+      FLYWAY_PASSWORD_FILE: /run/secrets/postgres-migrate-password
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    secrets:
+      - postgres-migrate-password
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  cloudflared:
+    <<: *runtime
+    image: cloudflare/cloudflared:2026.10.0@sha256:9b49eed8f62806d5d45ddf59ecefb5710429598ea6d3fcccd2af938f621b2b07
+    profiles: [edge]
+    user: "65532:65532"
+    mem_limit: 128m
+    command:
+      - tunnel
+      - --no-autoupdate
+      - --metrics
+      - 127.0.0.1:20241
+      - run
+      - --token-file
+      - /run/secrets/tunnel-token
+    secrets:
+      - tunnel-token
+    networks:
+      - backend
+      # Only the tunnel needs internet access.
+      - edge
+    depends_on:
+      gateway:
+        condition: service_healthy
+    healthcheck:
+      <<: *health
+      test:
+        - CMD
+        - cloudflared
+        - tunnel
+        - --metrics
+        - 127.0.0.1:20241
+        - ready
+
+  otelcol:
+    <<: *runtime
+    image: otel/opentelemetry-collector-contrib:0.162.0@sha256:39923a8e431bd1f57be82411999d389fcfe40857492e4365456d97a4c1f74be6
+    profiles: [observability]
+    labels: *observability-labels
+    user: "10001:10001"
+    mem_limit: 256m
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./observability/otelcol.yaml:/etc/otelcol/config.yaml:ro
+    # No shell or HTTP client in the image; watched through Prometheus instead.
+
+  tempo:
+    <<: *runtime
+    image: grafana/tempo:3.1.0@sha256:3076b8dcdfb32fd6bc5ccef85e7b7313e6199b9cb84366257fc17ecb696db5fd
+    profiles: [observability]
+    labels: *observability-labels
+    user: "10001:10001"
+    mem_limit: 512m
+    command:
+      - -config.file=/etc/tempo.yaml
+      # Tempo 3 has no size limit; disk use is bounded by this and the ingestion limits.
+      - -backend-worker.compaction.block-retention=${VITRIN_TRACES_RETENTION:-168h}
+      - -backend-scheduler.provider.work.compaction.block-retention=${VITRIN_TRACES_RETENTION:-168h}
+    volumes:
+      - ./observability/tempo.yaml:/etc/tempo.yaml:ro
+      - tempo-data:/var/tempo
+    # No shell or HTTP client in the image; watched through Prometheus instead.
+
+  prometheus:
+    <<: *runtime
+    image: prom/prometheus:v3.15.0@sha256:efd719c99d83b060d9daefdcf00360461adf279f45ef5391f8d111892118753e
+    profiles: [observability]
+    labels: *observability-labels
+    user: "65534:65534"
+    mem_limit: 512m
+    command:
+      - --config.file=/etc/prometheus/prometheus.yaml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=${VITRIN_METRICS_RETENTION_TIME:-7d}
+      - --storage.tsdb.retention.size=${VITRIN_METRICS_RETENTION_SIZE:-2GB}
+      - --web.enable-otlp-receiver
+    volumes:
+      - ./observability/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+      - prometheus-data:/prometheus
+    healthcheck:
+      <<: *health
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:9090/-/healthy"]
+
+  loki:
+    <<: *runtime
+    image: grafana/loki:3.7.8@sha256:1107dd5274e0ada47e42472b7a7e71f3b2a2fe878878108f3e2f9e51528f0193
+    profiles: [observability]
+    labels: *observability-labels
+    user: "10001:10001"
+    mem_limit: 384m
+    command:
+      - -config.file=/etc/loki/config.yaml
+      - -config.expand-env=true
+    environment:
+      VITRIN_LOGS_RETENTION: ${VITRIN_LOGS_RETENTION:-168h}
+    volumes:
+      - ./observability/loki.yaml:/etc/loki/config.yaml:ro
+      - loki-data:/loki
+    # No shell or HTTP client in the image; watched through Prometheus instead.
+
+  grafana:
+    <<: *runtime
+    image: grafana/grafana:13.2.3@sha256:b28bae15e219c998fb0e0424ed724930cc61b1f61fb404d47c862f9a23f9e572
+    profiles: [observability]
+    labels: *observability-labels
+    user: "472:0"
+    mem_limit: 384m
+    # Data source plugins run as separate Go processes; 128 made them fail to start threads.
+    pids_limit: 512
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana-admin-password
+      GF_PATHS_PROVISIONING: /etc/grafana/provisioning
+      GF_SERVER_ROOT_URL: ${VITRIN_GRAFANA_ROOT_URL:-http://localhost:3000}
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+      GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES: "false"
+      # The backend network cannot download plugins.
+      GF_PLUGINS_PREINSTALL_DISABLED: "true"
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    volumes:
+      # Only this directory: mounting the whole tree hides the image's empty default folders.
+      - ./observability/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - grafana-data:/var/lib/grafana
+    secrets:
+      - grafana-admin-password
+    healthcheck:
+      <<: *health
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:3000/api/health"]
+
+networks:
+  backend:
+    internal: true
+  edge:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  redis-data:
+  tempo-data:
+  prometheus-data:
+  loki-data:
+  grafana-data:
+
+secrets:
+  signing-key.pem:
+    file: ${VITRIN_SECRETS_DIR:?required in production}/signing-key.pem
+  address-hash.key:
+    file: ${VITRIN_SECRETS_DIR:?required in production}/address-hash.key
+  redis-password:
+    file: ${VITRIN_SECRETS_DIR:?required in production}/redis-password
+  redis.acl:
+    file: ${VITRIN_SECRETS_DIR:?required in production}/redis.acl
+  postgres-superuser-password:
+    file: ${VITRIN_SECRETS_DIR:?required in production}/postgres-superuser-password
+  postgres-migrate-password:
+    file: ${VITRIN_SECRETS_DIR:?required in production}/postgres-migrate-password
+  postgres-app-password:
+    file: ${VITRIN_SECRETS_DIR:?required in production}/postgres-app-password
+  tunnel-token:
+    file: ${VITRIN_SECRETS_DIR:?required in production}/tunnel-token
+  grafana-admin-password:
+    file: ${VITRIN_SECRETS_DIR:?required in production}/grafana-admin-password

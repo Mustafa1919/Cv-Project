@@ -1,0 +1,41 @@
+# Local rehearsal only; never use this override on the server.
+services:
+  gateway:
+    ports:
+      - "127.0.0.1:${VITRIN_REHEARSAL_GATEWAY_PORT:-18080}:8080"
+    networks:
+      - backend
+      - rehearsal
+
+  grafana:
+    ports:
+      - "127.0.0.1:13000:3000"
+    networks:
+      - backend
+      - rehearsal
+
+  tempo:
+    ports:
+      - "127.0.0.1:13200:3200"
+    networks:
+      - backend
+      - rehearsal
+
+  prometheus:
+    ports:
+      - "127.0.0.1:19090:9090"
+    networks:
+      - backend
+      - rehearsal
+
+  loki:
+    ports:
+      - "127.0.0.1:13100:3100"
+    networks:
+      - backend
+      - rehearsal
+
+networks:
+  # Published ports need a non-internal bridge.
+  rehearsal:
+    driver: bridge

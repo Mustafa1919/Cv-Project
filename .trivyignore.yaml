@@ -1,0 +1,3 @@
+# One entry per CVE and package (purls); statement must explain why and when to remove it.
+# Blanket suppressions hide unrelated vulnerabilities and are not allowed.
+vulnerabilities: []

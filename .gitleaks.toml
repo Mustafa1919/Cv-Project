@@ -1,0 +1,4 @@
+# Test keys are generated at run time; any allowlist entry needs a reason next to it.
+# Accepted false positives are listed by fingerprint in .gitleaksignore.
+[extend]
+useDefault = true

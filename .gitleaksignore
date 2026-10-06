@@ -1,0 +1,7 @@
+# One fingerprint per accepted finding, with the reason above it.
+
+# Not a key: the regular expression that recognises a PEM block in the key file.
+be938ce170968a8dd0148bb0908e609c2d6fad7f:core/src/main/java/com/mstech/vitrin/core/identity/SigningKeys.java:private-key:42
+
+# Not a secret: a fixed 32-character test input for the address hasher; no environment uses it.
+2decae4d9f26205a086a3abb03d238c7c76b746d:gateway/src/test/java/com/mstech/vitrin/gateway/ratelimit/AddressHasherTests.java:generic-api-key:16

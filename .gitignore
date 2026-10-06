@@ -20,6 +20,7 @@ node_modules/
 /site/.astro/
 /site/test-results/
 /site/playwright-report/
+/site/.lighthouseci/
 
 # IDE
 .idea/
@@ -52,3 +53,9 @@ secrets/
 *.log
 hs_err_pid*
 replay_pid*
+
+# Release configuration of this machine (deploy/release.conf.example is the template)
+/deploy/release.conf
+
+# Raw measurement output; the reports under docs/ cite it
+/measurements/

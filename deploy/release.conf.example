@@ -1,0 +1,16 @@
+# Use an SSH alias so host keys and credentials stay in SSH configuration.
+SSH_TARGET=vitrin
+# Identify the repository containing CI and the site deployment workflow.
+GITHUB_REPOSITORY=owner/name
+# Match the lowercase GHCR owner that publishes the signed images.
+IMAGE_OWNER=owner
+# Match the site's origin for API origin validation.
+SITE_ORIGIN=https://alanadi
+# Target the public gateway rather than internal services.
+API_ORIGIN=https://api.alanadi
+# Keep bundles and release records under the server's deployment root.
+REMOTE_HOME=/opt/vitrin
+# Point Compose at existing server-side secret files.
+SECRETS_DIR=/opt/vitrin/secrets
+# Enable the production tunnel and observability services.
+COMPOSE_PROFILES=edge,observability

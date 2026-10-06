@@ -1,0 +1,91 @@
+name: deploy-site
+run-name: deploy-site ${{ inputs.sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: Full commit SHA of a successful CI run
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-site
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment: production
+    permissions:
+      contents: read
+      actions: read
+      deployments: write
+    env:
+      SHA: ${{ inputs.sha }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Validate SHA and find successful CI run
+        id: ci
+        run: |
+          set -euo pipefail
+          if [[ ! $SHA =~ ^[0-9a-f]{40}$ ]]; then
+            printf '%s\n' 'sha must be exactly 40 lowercase hex characters' >&2
+            exit 1
+          fi
+          run_id=$(gh run list --workflow ci.yml --commit "$SHA" \
+            --status success --limit 1 --json databaseId \
+            --jq '.[0].databaseId')
+          if [[ ! $run_id =~ ^[0-9]+$ ]]; then
+            printf 'No successful ci.yml run found for %s\n' "$SHA" >&2
+            exit 1
+          fi
+          printf 'run_id=%s\n' "$run_id" >> "$GITHUB_OUTPUT"
+
+      - name: Download CI site artifact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          run-id: ${{ steps.ci.outputs.run_id }}
+          github-token: ${{ github.token }}
+          name: site-dist
+          path: site-dist
+
+      - name: Validate artifact files
+        run: |
+          set -euo pipefail
+          for file in \
+            site-dist/index.html \
+            site-dist/cv.pdf \
+            site-dist/en/cv.pdf \
+            site-dist/_headers; do
+            if [[ ! -f $file ]]; then
+              printf 'Missing artifact file: %s\n' "$file" >&2
+              exit 1
+            fi
+          done
+
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+
+      - name: Deploy site
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PAGES_PROJECT: ${{ vars.PAGES_PROJECT }}
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4.147.0 pages deploy site-dist \
+            --project-name "$PAGES_PROJECT" \
+            --branch main \
+            --commit-hash "$SHA"
