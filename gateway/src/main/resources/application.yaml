@@ -10,3 +10,11 @@ server:
 management:
   server:
     port: 9080
+
+# Checked by the startup guard; the service refuses to start in production without these.
+vitrin:
+  guard:
+    required-in-production:
+      - vitrin.site.origin
+    required-files-in-production:
+      - vitrin.ratelimit.address-hash-key-file

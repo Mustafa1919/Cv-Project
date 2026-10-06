@@ -13,10 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest(
         webEnvironment = WebEnvironment.RANDOM_PORT,
         properties = "management.server.port=0")
+@ActiveProfiles("test")
 class CoreApplicationTests {
 
     @Value("${local.server.port}")

@@ -11,5 +11,11 @@ management:
   server:
     port: 9081
 
+# Checked by the startup guard; the service refuses to start in production without these.
+vitrin:
+  guard:
+    required-files-in-production:
+      - vitrin.identity.signing-key-file
+
 # No JPA yet; set now so the first entity cannot rely on a session held open by the view.
 spring.jpa.open-in-view: false

@@ -13,6 +13,7 @@ class PlatformAutoConfigurationTests {
 
     private final ApplicationContextRunner runner =
             new ApplicationContextRunner()
+                    .withInitializer(context -> context.getEnvironment().setActiveProfiles("test"))
                     .withConfiguration(AutoConfigurations.of(PlatformAutoConfiguration.class));
 
     @Test
