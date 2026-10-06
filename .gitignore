@@ -1,0 +1,44 @@
+# Kept out of the repository on purpose (docs/vitrin/07-acik-kararlar.md, A11)
+/rakip-analizi.md
+/tartisma-notlari.md
+/docs/_arsiv/
+/CLAUDE.md
+/.claude/
+
+# Gradle
+.gradle/
+build/
+.kotlin/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+out/
+bin/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.p12
+*.jks
+
+# Logs and dumps
+*.log
+hs_err_pid*
+replay_pid*
