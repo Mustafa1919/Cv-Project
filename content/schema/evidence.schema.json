@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvidenceList",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": { "$ref": "common.schema.json#/$defs/id" },
+              "type": {
+                "enum": ["project", "case-study", "certificate", "decision-record", "measurement-report"]
+              },
+              "title": { "$ref": "common.schema.json#/$defs/localizedText" },
+              "ref": { "$ref": "common.schema.json#/$defs/id" }
+            },
+            "required": ["id", "type", "title", "ref"],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": { "$ref": "common.schema.json#/$defs/id" },
+              "type": { "const": "repository" },
+              "title": { "$ref": "common.schema.json#/$defs/localizedText" },
+              "url": { "$ref": "common.schema.json#/$defs/httpsUrl" }
+            },
+            "required": ["id", "type", "title", "url"],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false
+}

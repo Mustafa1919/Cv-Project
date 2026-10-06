@@ -1,0 +1,23 @@
+items:
+  - id: typescript
+    name: TypeScript
+    years: 3
+    evidence:
+      - ev-project
+      - ev-repository
+  - id: queue-design
+    name: Queue design
+    years: 2
+    evidence:
+      - ev-case-study
+      - ev-decision
+  - id: service-measurement
+    name: Service measurement
+    years: 2
+    evidence:
+      - ev-measurement
+  - id: software-testing
+    name: Software testing
+    years: 3
+    evidence:
+      - ev-certificate

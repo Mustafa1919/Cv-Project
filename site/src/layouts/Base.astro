@@ -1,0 +1,111 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { siteConfig } from "../lib/config.ts";
+import { loadContent } from "../lib/content.ts";
+import { translator } from "../lib/i18n.ts";
+import type { Locale } from "../lib/i18n.ts";
+import { pagePath } from "../lib/routes.ts";
+import type { Page } from "../lib/routes.ts";
+import latinFont from "@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2?url";
+import latinExtFont from "@fontsource-variable/source-serif-4/files/source-serif-4-latin-ext-wght-normal.woff2?url";
+import themeInit from "../scripts/theme-init.js?raw";
+import "../styles/fonts.css";
+import "../styles/vitrin.css";
+import "../styles/vitrin-additions.css";
+
+interface Props {
+  locale: Locale;
+  page: Page;
+  pageTitle: string;
+  description: string;
+  ogType?: "website" | "profile" | "article";
+}
+
+const {
+  locale,
+  page,
+  pageTitle,
+  description,
+  ogType = "website",
+} = Astro.props;
+const t = translator(locale);
+const name = loadContent().profile.name;
+const title = t("site.title", { page: pageTitle, name });
+const url = siteConfig.siteOrigin + pagePath(page, locale);
+const isNotFound = page.kind === "notFound";
+const locales: readonly Locale[] = ["tr", "en"];
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {(siteConfig.noindex || isNotFound) && (
+      <meta name="robots" content="noindex" />
+    )}
+    {!isNotFound && (
+      <>
+        <link rel="canonical" href={url} />
+        {locales.map((language) => (
+          <link
+            rel="alternate"
+            hreflang={language}
+            href={siteConfig.siteOrigin + pagePath(page, language)}
+          />
+        ))}
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={siteConfig.siteOrigin + pagePath(page, "tr")}
+        />
+      </>
+    )}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={name} />
+    <meta property="og:locale" content={locale === "tr" ? "tr_TR" : "en_US"} />
+    <meta
+      property="og:locale:alternate"
+      content={locale === "tr" ? "en_US" : "tr_TR"}
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href={latinFont}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    {locale === "tr" && (
+      <link
+        rel="preload"
+        href={latinExtFont}
+        as="font"
+        type="font/woff2"
+        crossorigin="anonymous"
+      />
+    )}
+    <script is:inline set:html={themeInit}></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t("nav.skipLink")}</a>
+    <div class="wrap">
+      <Header locale={locale} page={page} />
+      <main id="main" tabindex="-1">
+        <slot />
+      </main>
+      <Footer locale={locale} />
+    </div>
+    <script>
+      import "../scripts/theme.ts";
+      import "../scripts/status.ts";
+    </script>
+  </body>
+</html>

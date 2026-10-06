@@ -1,0 +1,121 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadContent } from "../lib/content.ts";
+import { pick, translator } from "../lib/i18n.ts";
+import type { Locale } from "../lib/i18n.ts";
+import { renderMarkdown } from "../lib/markdown.ts";
+import { projectsPath } from "../lib/routes.ts";
+
+interface Props {
+  locale: Locale;
+  projectId: string;
+}
+
+const { locale, projectId } = Astro.props;
+const content = loadContent();
+const project = content.projectsById.get(projectId);
+if (project === undefined) {
+  throw new Error(`Missing project: ${projectId}`);
+}
+const studies = content.caseStudiesByProjectId.get(projectId) ?? [];
+const t = translator(locale);
+const numberFormatter = new Intl.NumberFormat(
+  locale === "tr" ? "tr-TR" : "en-US",
+);
+---
+
+<Base
+  locale={locale}
+  page={{ kind: "project", id: projectId }}
+  pageTitle={project.name}
+  description={t("site.descriptionProject", { project: project.name })}
+  ogType="article"
+>
+  <p class="eyebrow mono">
+    <a href={projectsPath(locale)}>{t("caseStudy.backToProjects")}</a>
+  </p>
+  <h1 class="page">{project.name}</h1>
+  <p class="lead">{pick(project.summary, locale)}</p>
+  {project.repository !== undefined && (
+    <p>
+      <a href={project.repository} rel="noopener noreferrer">
+        {t("caseStudy.repository")}
+      </a>
+    </p>
+  )}
+
+  {studies.length === 0 ? (
+    <p class="note">{t("caseStudy.noCaseStudy")}</p>
+  ) : (
+    studies.map((study) => (
+      <article id={study.id}>
+        <section aria-labelledby={`${study.id}-title`}>
+          <h2 id={`${study.id}-title`}>{pick(study.title, locale)}</h2>
+
+          <section aria-labelledby={`${study.id}-problem`}>
+            <h3 id={`${study.id}-problem`}>{t("caseStudy.problem")}</h3>
+            <div
+              class="prose"
+              set:html={renderMarkdown(pick(study.problem, locale))}
+            ></div>
+          </section>
+
+          <section aria-labelledby={`${study.id}-decision`}>
+            <h3 id={`${study.id}-decision`}>{t("caseStudy.decision")}</h3>
+            <div
+              class="prose"
+              set:html={renderMarkdown(pick(study.decision, locale))}
+            ></div>
+          </section>
+
+          <section aria-labelledby={`${study.id}-cost`}>
+            <h3 id={`${study.id}-cost`}>{t("caseStudy.cost")}</h3>
+            <div
+              class="prose"
+              set:html={renderMarkdown(pick(study.cost, locale))}
+            ></div>
+          </section>
+
+          <section aria-labelledby={`${study.id}-result`}>
+            <h3 id={`${study.id}-result`}>{t("caseStudy.result")}</h3>
+            <div
+              class="prose"
+              set:html={renderMarkdown(pick(study.result, locale))}
+            ></div>
+          </section>
+
+          {study.metrics !== undefined && study.metrics.length > 0 && (
+            <section aria-labelledby={`${study.id}-metrics`}>
+              <h3 id={`${study.id}-metrics`}>{t("caseStudy.metrics")}</h3>
+              <dl class="metrics">
+                {study.metrics.map((metric) => (
+                  <div>
+                    <dt>{pick(metric.label, locale)}</dt>
+                    <dd>
+                      <strong>{numberFormatter.format(metric.value)}</strong>
+                      {" "}
+                      {metric.unit}
+                      <span class="source mono">
+                        {"url" in metric.source ? (
+                          <a href={metric.source.url} rel="noopener noreferrer">
+                            {t("caseStudy.source")}
+                          </a>
+                        ) : (
+                          <>
+                            {t("caseStudy.measurementReport")}
+                            {" · "}
+                            <code>{metric.source.report}</code>
+                          </>
+                        )}
+                      </span>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
+        </section>
+      </article>
+    ))
+  )}
+</Base>

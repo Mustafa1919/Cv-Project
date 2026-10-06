@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UiDictionary",
+  "type": "object",
+  "propertyNames": {
+    "pattern": "^[a-z][a-zA-Z0-9]*$"
+  },
+  "patternProperties": {
+    "^[a-z][a-zA-Z0-9]*$": {
+      "oneOf": [
+        { "type": "string", "pattern": "\\S" },
+        { "$ref": "#" }
+      ]
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "minProperties": 1
+}

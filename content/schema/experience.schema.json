@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperienceList",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "organization": { "type": "string" },
+          "title": { "$ref": "common.schema.json#/$defs/localizedText" },
+          "start": { "$ref": "common.schema.json#/$defs/yearMonth" },
+          "end": { "$ref": "common.schema.json#/$defs/yearMonth" },
+          "location": { "$ref": "common.schema.json#/$defs/localizedText" },
+          "description": { "$ref": "common.schema.json#/$defs/localizedMarkdown" },
+          "skills": { "$ref": "common.schema.json#/$defs/idList" }
+        },
+        "required": ["id", "organization", "title", "start", "description"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false
+}

@@ -1,0 +1,50 @@
+id: queue-rewrite
+project: queue-service
+title:
+  tr: Kurgusal kuyruk servisinin yenilenmesi
+  en: Rewriting the fictional queue service
+problem:
+  tr: >-
+    Kurgusal serviste başarısız işler sessizce yeniden kuyruğa dönüyordu.
+    Bu davranış, sorunun kaynağını bulmayı ve işlem sırasını anlamayı güçleştiriyordu.
+  en: >-
+    Failed jobs in the fictional service silently returned to the queue.
+    This behavior made it difficult to identify the cause and understand processing order.
+decision:
+  tr: >-
+    Yeniden denemeleri açık bir durum modeliyle yönetmeyi seçtik.
+    **Karar kaydı**, alternatifleri ve gözlemlenebilirlik gereksinimlerini birlikte açıklıyor.
+  en: >-
+    We chose to manage retries with an explicit state model.
+    The **decision record** explains the alternatives alongside observability requirements.
+cost:
+  tr: >-
+    Durum geçişlerini belgelemek ve mevcut işleri uyarlamak ek bakım gerektirdi.
+    Daha açık hata yönetimi karşılığında uygulamanın iç yapısı karmaşıklaştı.
+  en: >-
+    Documenting state transitions and adapting existing jobs required additional maintenance.
+    The internal implementation became more complex in exchange for clearer failure handling.
+result:
+  tr: >-
+    Başarısız işler artık açık durum bilgisiyle izlenebiliyor.
+    Aşağıdaki kaynaklı ölçümler, kurgusal deneme ortamındaki servis davranışını gösteriyor.
+  en: >-
+    Failed jobs can now be tracked with explicit state information.
+    The sourced measurements below describe service behavior in the fictional trial environment.
+metrics:
+  - id: queue-wait
+    label:
+      tr: Kurgusal denemede ortanca kuyruk bekleme süresi
+      en: Median queue wait time in the fictional trial
+    value: 120
+    unit: ms
+    source:
+      report: o-01
+  - id: processing-duration
+    label:
+      tr: Kurgusal denemede ortanca işlem süresi
+      en: Median processing duration in the fictional trial
+    value: 45
+    unit: ms
+    source:
+      url: https://example.com/measurements/queue-processing

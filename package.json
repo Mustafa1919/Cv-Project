@@ -1,0 +1,11 @@
+{
+  "name": "vitrin",
+  "private": true,
+  "engines": {
+    "node": ">=22.17"
+  },
+  "workspaces": [
+    "content/tool",
+    "site"
+  ]
+}

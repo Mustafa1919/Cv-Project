@@ -1,0 +1,34 @@
+items:
+  - id: current-service-role
+    organization: Kurgusal Bulut Atölyesi
+    title:
+      tr: Yazılım geliştirici
+      en: Software developer
+    start: "2024-03"
+    location:
+      tr: İstanbul, uzaktan
+      en: Istanbul, remote
+    description:
+      tr: >-
+        Kurgusal kuyruk servisinin bakımını yürütür.
+        Teknik kararları belgeler ve ölçüm sonuçlarını ekiple paylaşır.
+      en: >-
+        Maintains the fictional queue service.
+        Documents technical decisions and shares measurement results with the team.
+  - id: previous-tooling-role
+    organization: Kurgusal Çınar Yazılım Evi
+    title:
+      tr: Yazılım araçları geliştiricisi
+      en: Software tooling developer
+    start: "2021-07"
+    end: "2024-02"
+    description:
+      tr: >-
+        Kurgusal içerik araçları geliştirdi.
+        Test senaryolarını düzenledi ve bakım süreçlerini açık yönergelerle destekledi.
+      en: >-
+        Developed fictional content tools.
+        Organized test scenarios and supported maintenance processes with clear instructions.
+    skills:
+      - typescript
+      - software-testing

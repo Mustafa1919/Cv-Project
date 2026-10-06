@@ -1,0 +1,28 @@
+items:
+  - id: queue-service
+    name: Fictional Queue Service
+    summary:
+      tr: >-
+        Kurgusal iş taleplerini kuyruk üzerinden işleyen bir servis.
+        Hata durumlarını görünür kılar ve yeniden denemeleri kontrollü biçimde yönetir.
+      en: >-
+        A service that processes fictional work requests through a queue.
+        It makes failures visible and manages retries in a controlled manner.
+    repository: https://example.com/repositories/queue-service
+    skills:
+      - typescript
+      - queue-design
+      - service-measurement
+  - id: content-workbench
+    name: Fictional Content Workbench
+    summary:
+      tr: >-
+        Kurgusal vitrin içeriklerini incelemek için hazırlanmış bir araç.
+        İçerik tutarlılığını testlerle denetler ve bakım işlerini kolaylaştırır.
+      en: >-
+        A tool prepared to inspect fictional showcase content.
+        It checks content consistency with tests and simplifies maintenance work.
+    repository: https://example.com/repositories/content-workbench
+    skills:
+      - typescript
+      - software-testing

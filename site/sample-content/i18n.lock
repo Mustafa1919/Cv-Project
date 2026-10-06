@@ -1,0 +1,381 @@
+{
+  "version": 1,
+  "units": {
+    "case-studies/queue-rewrite.yaml#/cost": {
+      "tr": "4124d449181cf7af35dbeba2ebcef700f926f23d96832e7ea08070800b56dc85",
+      "en": "03508ed8abbfd3ca159af8fe8bc910d65c015d50627f86fda86d6346dcd80484"
+    },
+    "case-studies/queue-rewrite.yaml#/decision": {
+      "tr": "ee3c05bfc6f481d3da14d4d0294c2981c30dcbac72e9655699b93a8e69a1811d",
+      "en": "495a86476e8f34d1d7ceb0f522a46065602779425dd0c6bc5914ce000a8738d2"
+    },
+    "case-studies/queue-rewrite.yaml#/metrics/processing-duration/label": {
+      "tr": "4cce9aa4f7974820445e9167dca857d5919f1c98c679ecd994e9004a4f02837d",
+      "en": "9eacac846f0893d240bdbdd00dd04369e727082cd33f5c32211d5d731d3119c4"
+    },
+    "case-studies/queue-rewrite.yaml#/metrics/queue-wait/label": {
+      "tr": "e8ad36956712dfd23298555e7df7b774043f30476bf353f89ccc7020eccfd98b",
+      "en": "97aea8527c78d8712d8e30cb7a44e547fc4105a479320d39812fc0bce1d730b2"
+    },
+    "case-studies/queue-rewrite.yaml#/problem": {
+      "tr": "a9e6d22013a64071213bc2eebc5b8159c57b6850ac77f03e9389ba6efa2fd76a",
+      "en": "b61bfee61b548d4b60631d364c430e9a60b32e34aacf78efdf9c50a9e10a9406"
+    },
+    "case-studies/queue-rewrite.yaml#/result": {
+      "tr": "2e1fd107359a776337444145c0e906e4e0e172867feacb4d0e345d8d2e23c211",
+      "en": "f9841f8a30a4a7684130da4033de457a6bf3621bdd5c896e1d326e00e745129f"
+    },
+    "case-studies/queue-rewrite.yaml#/title": {
+      "tr": "e58874119334ec8d6aa81aab4c6036d3c59247c291cd70a29fbf7af21ef65466",
+      "en": "a5237670e46b03112cd32b4c04dcfa92017064a7464b1fbf081651a55e45de86"
+    },
+    "certificates.yaml#/items/reliability-workshop/name": {
+      "tr": "4331de69ef6efa73261ac812b321c22db0941005f802853706cabd5da71f6f1c",
+      "en": "54c415968f9e149f050043f626135a6ef8d81a86f8e35a8d2ed8d87e2ac47a81"
+    },
+    "certificates.yaml#/items/testing-foundations/name": {
+      "tr": "afd5b3d108d83989c202aaad623839a04f7d181a5b08869ce7191c75af4cd6a2",
+      "en": "3aa937a56feedfb81ff4255c00e92116af757ed3181617743d624fa4396b1351"
+    },
+    "education.yaml#/items/fictional-software-degree/degree": {
+      "tr": "a51102077007c24f949955bf220d4ae639eef809bb4d2b49bf284c46e3da7f00",
+      "en": "9914c286bf6020d7c73cd46f6991701833c44eef700daa1f310f606132c1feee"
+    },
+    "education.yaml#/items/fictional-software-degree/institution": {
+      "tr": "eaef5369ce9659f1e76885b0bc7f0f1ffaa05961ddc49b142cad3696b0fe6a4a",
+      "en": "e9f25c2fcbbf530c7b666f29c320090557324911e8a0a6f7453b971a2d51c166"
+    },
+    "evidence.yaml#/items/ev-case-study/title": {
+      "tr": "28cdeb58759b71b1f5a658b1e6617218d41556c86123915d72dd7acb2f9c07d1",
+      "en": "3deb23aaf9cb0cdccfa38b9f5399dc4493e7a419e9564b1c513079e94e887aea"
+    },
+    "evidence.yaml#/items/ev-certificate/title": {
+      "tr": "343799da548742730ceca2199eef9e677de1edb619f305a0e9ed91c8af2998be",
+      "en": "034e650321de49993905687322cf609a6ffc8a4a6b67716d4369c5b4202ab9bd"
+    },
+    "evidence.yaml#/items/ev-decision/title": {
+      "tr": "8d952650c09f09e4aed105ce755a86f51e4f0222358ca42717236775e076a024",
+      "en": "a1292467233388509ec3a42c0006bf3a5340eaa9b10401b5841f59f0fad3a58d"
+    },
+    "evidence.yaml#/items/ev-measurement/title": {
+      "tr": "37e486ee13bd70c79bc1bb37eff069e8ad9a3f14a338faaa58d2e61faa951548",
+      "en": "27f7e41c8636849b990e0bf370a8ffb1eb26e77b69d95be6e5f3717ab2184b89"
+    },
+    "evidence.yaml#/items/ev-project/title": {
+      "tr": "0a1bff227533757445726c96097fe0771668a421719011ff57d69e8546130200",
+      "en": "4898d5d1f3b36d95f72590018c5b28dfacc988ee12b30d5176a04fca29d51882"
+    },
+    "evidence.yaml#/items/ev-repository/title": {
+      "tr": "89efa0715410128e2765da51ee61ac7d13a2da26df2b633c2682b458e104785d",
+      "en": "c5f20f96b63948ddf2ff7e168abd5b71227e3e437c14673ede36c880dd161126"
+    },
+    "experience.yaml#/items/current-service-role/description": {
+      "tr": "da204dfbdbbe79bd05765214cdff8fba8473d005f9aacbb047194422554cf2e2",
+      "en": "59c7f7297ba544cbfc63aea034f8f559a35b06a0bc0e0c445fd68ee3ea978ba4"
+    },
+    "experience.yaml#/items/current-service-role/location": {
+      "tr": "d315a17dd36556fae15da28a4f0ff607f9f5f6fc20c3cb7c533e4ff4fd30c597",
+      "en": "f747e4e46bbbe4ef95efae024ce46f91cb30f0f9fd3def90762aa433c8cc2d84"
+    },
+    "experience.yaml#/items/current-service-role/title": {
+      "tr": "4f6074a6d4cf8bd98f2101951cfb548d5129b420e7eaaf8a087b55693cb99df5",
+      "en": "0f9f80b4c9a3f9dcef4f419fbbd2eb25a57295c4ba75db0735b48df826190c54"
+    },
+    "experience.yaml#/items/previous-tooling-role/description": {
+      "tr": "427dba62bd24f4a6f10222132b3cacdd3c4626770a48495b4d6b78f2446e1c51",
+      "en": "9a73052ae980c3665a2e936e7005a6f2016a827720c1c73fe79ef06d3d1cb74f"
+    },
+    "experience.yaml#/items/previous-tooling-role/title": {
+      "tr": "ffc19b91364ae6a6478b9f43822b35e4cddb0e5b13e427eb48e41462dfec286a",
+      "en": "a63efc4f64faf1f3cad358ee24f9c94a6f6b01726b35c9069c43eb211d986fb4"
+    },
+    "profile.yaml#/availability": {
+      "tr": "378a0744bc70cb03b624b2fc503d3c093f0b291dc5f01fe614bcc9067e952518",
+      "en": "998e565967878e71959fb6d937ecb71b1b7d011805a697828c5d5d1f71d561ba"
+    },
+    "profile.yaml#/highlights/0/text": {
+      "tr": "971d93e6d3b8c6a5939547b2b93cccb015658df5e477e2ea79db88b2810092f5",
+      "en": "404f5893e39a841b51ba893820afa0366b835a7b0d68439159e2eec020687a6a"
+    },
+    "profile.yaml#/highlights/1/text": {
+      "tr": "7a89c51d89af772ad6556fb1670e3bcf4056d10893fe9734cb0f001935e30051",
+      "en": "f59923d401f48aec6a9b018800947148b6c159079c6035485b917130e649a4a9"
+    },
+    "profile.yaml#/highlights/2/text": {
+      "tr": "9e3c1e991faf915aa8d5330f70cfa41561e484cbe439761735f3b0d237e27f0b",
+      "en": "da2a73fc741f02ccd6a8035fcec785ab82391d0695d4a3e333241d0f8793a9f8"
+    },
+    "profile.yaml#/links/personal-showcase/label": {
+      "tr": "bcdfdaffc08d5d7fa8c4997b59252492666162e48e6ff7c005c0dadbd4f6cbbc",
+      "en": "5d8fef81ad5ea3bade2c3d6cd817a5278de2092077521247e41c43e1a37d9159"
+    },
+    "profile.yaml#/location": {
+      "tr": "65f2ed69338812a53bb2ec7c2df8d76b01f657e70f638cfe915edc3c6eaf2c0e",
+      "en": "24e388815d841ffc93ffe148a6c246656ce64848c25e6597ae6d1b86939a754c"
+    },
+    "profile.yaml#/summary": {
+      "tr": "b1202fe534b6b2dae2878dd1df49f009fd0696167a998c40908f195bb81811ae",
+      "en": "b78efa9b92d90d90021c13c3d613c8fa90c7d71a9082903b29702e572397b643"
+    },
+    "profile.yaml#/targetRole": {
+      "tr": "4f6074a6d4cf8bd98f2101951cfb548d5129b420e7eaaf8a087b55693cb99df5",
+      "en": "0f9f80b4c9a3f9dcef4f419fbbd2eb25a57295c4ba75db0735b48df826190c54"
+    },
+    "profile.yaml#/workPreference": {
+      "tr": "8f483dfad9fd6b7b5e22b980e5744273678c6d17e96380687891b1fbd78e0a65",
+      "en": "7755fc1e067ca12046d76eab9781f2e9546be8b000fe497648389a88318383f3"
+    },
+    "projects.yaml#/items/content-workbench/summary": {
+      "tr": "966991ee20a9e1fa304de2fdf1d17eec88be23e4bfe959a7d71a2ce7b1692c26",
+      "en": "0ea10faa664cd306e78712621045c9136c4057dedd6b517fb8141ad56079761e"
+    },
+    "projects.yaml#/items/queue-service/summary": {
+      "tr": "5bab462bcb5af15cf1e3d6fd5f23a50cf63e44b03e68ba9b28d2bd6cf4fb4846",
+      "en": "4982c07cafb86a2a74b88eadc0caf9c88c60308f9e014895b515bf0d22bd8ee6"
+    },
+    "ui#/actions.pdf": {
+      "tr": "9875f90a9c259c09a62ebdbfd637ef9aa52c597750d111199284b620a28549de",
+      "en": "13be2cf25f9edcbed005a18267b1ef133438ecbf452b38494247ee3323b96a97"
+    },
+    "ui#/caseStudy.backToProjects": {
+      "tr": "6cbfb25900620fbe3d0585123da330be215adfc9676ede87e5fb9d8b0db9bc26",
+      "en": "d9088c8aee0118cbc5f36d530001d9c73b9ac7187e02edebb05f322b61ec0ca0"
+    },
+    "ui#/caseStudy.cost": {
+      "tr": "bb3d1fd25867bbf2bd9141af8359cb508c3a038d0760ea9f5407633a0390f18e",
+      "en": "204a5eb2cd28bcfdf3be9f8c765948e9e831609e3c57048cdbd6b8a94cf49126"
+    },
+    "ui#/caseStudy.decision": {
+      "tr": "779c7177e97ab89ba5c7fe272116ca1a4a18b592a204762e6c135edb5b513ada",
+      "en": "640ae4baf96061fee1798e9181e2b7a5145585233df2c27a501623afb0096ec1"
+    },
+    "ui#/caseStudy.measurementReport": {
+      "tr": "c2b5484610c85e54722b5880f6f36ca70350942b879fb61b1c9402a1fc2dce57",
+      "en": "7a2822e845e60c08103ac8a018fdca89e1732733e1f835baccf9fb5dcd6d8407"
+    },
+    "ui#/caseStudy.metrics": {
+      "tr": "72d79c4e6dd719a72c167ea1262e404ab8b02b0a077e8f12f415fbe10777ac77",
+      "en": "a58da793c7250f1b3b8f8710efd7c7ee7e1a2dac4208f355dad42458a421e4ec"
+    },
+    "ui#/caseStudy.noCaseStudy": {
+      "tr": "4f28b5454b8b11e726a6a35fa6c2184dac900cb0d61104f5d5fff6ec0658ee9c",
+      "en": "9c02290d77b1c4283106160a4abab1daa7cb406293dd275e6d409697e1bed07a"
+    },
+    "ui#/caseStudy.problem": {
+      "tr": "9e9121ff9388abf2f373ecddd2f3634ca9d5e4f1172bda1759fc4582f4579b1b",
+      "en": "a1c5ae7bcb34bbf48104488eff8deede31b059aceceab562a6aace384f7fd64f"
+    },
+    "ui#/caseStudy.repository": {
+      "tr": "3f6a1e9e1ea22d5cfafb1b3698fb80dde5249a46de71b3ef1a25006ba2287b32",
+      "en": "13d6ff07b8a5d792ec87d5ec83bff2730ee77fa8f4fcd89ca5f1d688f64b4c73"
+    },
+    "ui#/caseStudy.result": {
+      "tr": "f41f3521f17b9a2a3ffd9ae1140133f543641097ed992a37b8dc1237d31692ad",
+      "en": "bf9bbc90164b531c62a02067330b697f741214c51e96e06c86ab0e75dab41985"
+    },
+    "ui#/caseStudy.source": {
+      "tr": "2f0db590c3dcd1da8f12ee13d66578fab5dd2e84e4fd983e0deb3d2ad53ce2dd",
+      "en": "0e570ca6fabe24f94e52c1833f3ffd25567022beb826fa16891f3322051bc221"
+    },
+    "ui#/certificates.inProgress": {
+      "tr": "44516b75a41fc71b03583c07d50bfa188009b032050d4b81e2708e8c4d6fa8d9",
+      "en": "c1f88e9d6c4145cf0530ae020155384d5688d70ed82a07a35d783bbc4b32238c"
+    },
+    "ui#/dates.present": {
+      "tr": "5b09d3fe743098b8a621ceae4098c0fc52bd712e526c474fb02a28a375654c65",
+      "en": "4d4c7eee2e28d03cb2dbf3df639c3290ade66e18755e83caade2d8f37bd8c044"
+    },
+    "ui#/evidence.caseStudy": {
+      "tr": "066efe193d537dcbd266ede392d180e364ae55595f80e82de32929306a6d3fb5",
+      "en": "2dcee86dc899fce037dc0f6be6269d86229ce3f78f21c1ed61a86cb7b3d11d55"
+    },
+    "ui#/evidence.certificate": {
+      "tr": "21536602d9dbe04a894ab53c526c1bc6e2b4b530221ea75ea4de331d00103d41",
+      "en": "2a93a8a442e305e84da02d6620f77f97ec9ebbca18abef6f64daf110c3992937"
+    },
+    "ui#/evidence.decisionRecord": {
+      "tr": "d4ef85f0043e36276d007d11c602ccf60b920221588580fe2bbea4bbd0c673e0",
+      "en": "c33f22e665877c365072b469a4cdb86dcb5f47405f0fda91068109fa3effe081"
+    },
+    "ui#/evidence.measurementReport": {
+      "tr": "c2b5484610c85e54722b5880f6f36ca70350942b879fb61b1c9402a1fc2dce57",
+      "en": "7a2822e845e60c08103ac8a018fdca89e1732733e1f835baccf9fb5dcd6d8407"
+    },
+    "ui#/evidence.project": {
+      "tr": "7b321d627cb15a817c9e3d34986f996e7271a90f0b263b3917209dc018adf917",
+      "en": "985959785319747668373cc6dee294b11db782b03cdd90a2851fbdc0637c6b7b"
+    },
+    "ui#/evidence.repository": {
+      "tr": "3f6a1e9e1ea22d5cfafb1b3698fb80dde5249a46de71b3ef1a25006ba2287b32",
+      "en": "13d6ff07b8a5d792ec87d5ec83bff2730ee77fa8f4fcd89ca5f1d688f64b4c73"
+    },
+    "ui#/footer.staticNotice": {
+      "tr": "424ed084e4d230c8aefb0d635778a1285b03324b5efdc0134386ee539506604d",
+      "en": "3f69c5691cdaf8905859ee9ceaf2f64fe1c5be1de6568c7ac13c81ffff165576"
+    },
+    "ui#/language.en": {
+      "tr": "861dd128f74f33e757100af7110090ad31845ac91b0f541c2ad4002a0e9de2aa",
+      "en": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06"
+    },
+    "ui#/language.switchLabel": {
+      "tr": "884951f6b072a017882370599a338898294ab4c4ae6d76543b85273736b27206",
+      "en": "9bb57d2c5acff2fe27c722c0e9c1849f8acf4e1c2ef79f4c21f30da0632dfff1"
+    },
+    "ui#/language.tr": {
+      "tr": "0f8b5cb2e84b210d34a4af531296431bc595bb2321d77179deb42718de75bfae",
+      "en": "6e7aac65db0112465ee368ee3ee8799025a8a52a722bab2ce9c615a9ca1e7938"
+    },
+    "ui#/nav.mainLabel": {
+      "tr": "338a27d7a65ab2d0842fede3cc7d87bfffe708b1101ec59940c4d53dbfdcfbf3",
+      "en": "eb355944b92d10582856f8aea34b3e319ba465b8aa4c294973cf53f665399a2c"
+    },
+    "ui#/nav.privacy": {
+      "tr": "b867e8544d0e6022cc4579560fd199fc98512ffdecc52f6ebfeb3adfabdac24d",
+      "en": "54a57c3147c49f33de5898b87084ad2b14c4ab308f762454bf92aca907478ad5"
+    },
+    "ui#/nav.profile": {
+      "tr": "e267d343821f264e61be7d66ef27acd640e0cdb4ef2df9b54ad6ebff0f3ab35f",
+      "en": "d696a35bdd1883da07a8d6c41bb7a3153381b23aa197629ee273479a6eaa5a9c"
+    },
+    "ui#/nav.projects": {
+      "tr": "30bcb5bccd3e2e26fc5648fc06db605d752f23672ef83007894be2fe567f5457",
+      "en": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada"
+    },
+    "ui#/nav.skipLink": {
+      "tr": "758f78553047a3ee5535074952548040366f358f64ee61d1f699dcea17e9dbac",
+      "en": "c887f134c26ea8310e1fb4bd6fbab7b640393bd1b556e62691c7a442be92ec2a"
+    },
+    "ui#/notFound.back": {
+      "tr": "423d398505e9c5ac31c4a52e2b69c2664cdd68566e6b1cfe851f5705a75d7cd8",
+      "en": "d5647f365983c13277caa882dea35ad0383475d229dbec5ee955c12edf6d2282"
+    },
+    "ui#/notFound.text": {
+      "tr": "92b20be6ea44bec643bf49f75e233d73183810fdc716e137c2f9d0f5223f1086",
+      "en": "379bc4a54d94051893e222574ce64ffebec647723daa12f8fa99e2f52b1780d7"
+    },
+    "ui#/notFound.title": {
+      "tr": "54862c4b8a11fca611f9d9343005283a37afbbc2d9b407711ae16e9edfb7e600",
+      "en": "a469ab4ca4e55bf547566e9ebfa1b809c933207e9d558156bc0c4252b17533fe"
+    },
+    "ui#/privacy.liveCookies": {
+      "tr": "c08ce21f137cf6f63e54e3952c82a256a348ff0e1bd7a98121b8dddd0beb2770",
+      "en": "1157ada74a80307bd6cc72a2a2f2eb0426572894c1c8270b3819b9b7d6a0c7b5"
+    },
+    "ui#/privacy.localAssets": {
+      "tr": "3f4567d3dae2655c72dadd29d739a2be230187a0ed71dfd794470db82bfcba1b",
+      "en": "a018e6d88a9774da593dac23901c0c7fd1c5c55c4e6672889edfd6c5c030aae4"
+    },
+    "ui#/privacy.noCookies": {
+      "tr": "fc5cd59d39a2bf096aa4c39430cdf81e6580de86987056d277495a789f192c48",
+      "en": "14f857c75cac7a4ad4deb1e96db16257067e0a5f704a3c86f3253aa4a63b9b72"
+    },
+    "ui#/privacy.rateLimiting": {
+      "tr": "f5a3fc112d266c2b21acb715e564aa86b9fa238368db14be02839b912724a3ae",
+      "en": "729eca5274f634f47a3cd70cafc4541eb09994739e48aae2999e510ef5cd41a0"
+    },
+    "ui#/privacy.statusRequest": {
+      "tr": "0c6200fdfc42b3f5565936567ac3c358497b2270620d89276d84fb76f3c3ebcb",
+      "en": "9e7e414102a87a50704e8aaac064044562bf84606e78629b8f81181dd589970c"
+    },
+    "ui#/privacy.title": {
+      "tr": "b867e8544d0e6022cc4579560fd199fc98512ffdecc52f6ebfeb3adfabdac24d",
+      "en": "54a57c3147c49f33de5898b87084ad2b14c4ab308f762454bf92aca907478ad5"
+    },
+    "ui#/profile.certificates": {
+      "tr": "d6921be466c09dfb56b0223e3d65b527f8065f513b2e802f6deb1dbdc2b0f721",
+      "en": "16f637921eba69b04b80b33acfce138c0f48121ce6b33eda1a10aaf7c5216b23"
+    },
+    "ui#/profile.education": {
+      "tr": "2aa71916f93cb8e4694a6336cce2a1b9b71fc3aec5d475b283c2ab625dbae07e",
+      "en": "512ab3c6b9869577bd4474c56b88f9e3f1c40c54d18e8e5a2329821254d362d2"
+    },
+    "ui#/profile.experience": {
+      "tr": "a36362d47352f7b3f7d1bec2a8d5bb664fc67ea3b341a85ffee0d795bb72a88b",
+      "en": "8eab0f09df013b1bd69655991bb824cfa822d383b482905789153d4df8bfda78"
+    },
+    "ui#/profile.projects": {
+      "tr": "30bcb5bccd3e2e26fc5648fc06db605d752f23672ef83007894be2fe567f5457",
+      "en": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada"
+    },
+    "ui#/profile.skills": {
+      "tr": "277b511cb91e045f011cb868af09edeb8d09b7b9b21e2b6b25050d073503782f",
+      "en": "66d0f523a379b2de6f8d5fba3a817ebc395f7bcaa54cc132ca9dfa665d1e9378"
+    },
+    "ui#/profile.skillsNote": {
+      "tr": "4c8ffabb55df8b9c264d3103d4ee3f74903153c1f7d84e47c9e26e9f38b758f1",
+      "en": "95a50d91e67ef40d92b8003c94dfee4150d993816dcb5ba8af5b226338789ae3"
+    },
+    "ui#/profile.strongestEvidence": {
+      "tr": "d95f0e1cd0486edd6f31c1e26256d86661d5daeafd2c86774948b3485d7252f4",
+      "en": "a9bd42556060dea3f181fc537fe18cdb3f05d6a467f447cabf526cab8c10171b"
+    },
+    "ui#/projects.heading": {
+      "tr": "30bcb5bccd3e2e26fc5648fc06db605d752f23672ef83007894be2fe567f5457",
+      "en": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada"
+    },
+    "ui#/projects.intro": {
+      "tr": "1c1cb7c5e5e83291ca78e299d433fc0bfc4fd705c8d6a9d5a331a479102b190d",
+      "en": "5ef770cd1afd96b9b6b9e55c1d9e78021c3f44bb44536ea6cccbd23550fa3d69"
+    },
+    "ui#/site.descriptionNotFound": {
+      "tr": "544215fb623abd49487405afd0d1dfc46aeb01710e9f0c80dad258b207a197b6",
+      "en": "916ac732259ceb44f259ace08c7ae2be3aae87335504a9d7d62c371ef6c2ab38"
+    },
+    "ui#/site.descriptionPrivacy": {
+      "tr": "c87b0edca0219c556e1ad5e6783be0d6610e07696c30281f8848cd526beb3cde",
+      "en": "c3057abeb22ae7f230eafabefa1a8ca3de4e5be0075454cb56f5bb7f969ddf68"
+    },
+    "ui#/site.descriptionProfile": {
+      "tr": "8ddec3fa8f81b704f172d06f6796ad013f4f153cc074cb4081e5d0e8a451d4af",
+      "en": "94f9d1e01da989cb24ce24a67ef51033cff0913daea12ee077eefef6c4092d44"
+    },
+    "ui#/site.descriptionProject": {
+      "tr": "840fc43f82704e966c721084332b3420fdf9c9a94c25c85e626d6a628c94ab28",
+      "en": "ce05581c90e69a16af0dc2be65de85e0f9a7c4cc49a83bc6057541f4323b5402"
+    },
+    "ui#/site.descriptionProjects": {
+      "tr": "b18c880b1be5efdee9da0666055e7670d1191ac3377873c25d0ebe7661968a06",
+      "en": "1fc9330908614552a7aacff72ff2b048c7c45494ff0746be66d6fb072a777ed8"
+    },
+    "ui#/site.title": {
+      "tr": "58d0ca2d19ccb0b56d9fc056159775e54821e0c7fd0c6b1f825d0c5d2c4f7230",
+      "en": "58d0ca2d19ccb0b56d9fc056159775e54821e0c7fd0c6b1f825d0c5d2c4f7230"
+    },
+    "ui#/status.down": {
+      "tr": "1f26da3c3a1d9ce3c9d41bd8c246b4b0ea8db767ab9564f0bcaada83cb0297d3",
+      "en": "491b1282374302bc30a4d3d8cce8cf8e8079e5a542f7fe7c489d0260737970cd"
+    },
+    "ui#/status.neutral": {
+      "tr": "2652b68892a3d1170ca8b6d17b3dec04b9a855f3bf5b9bb9575c358bb1a8893f",
+      "en": "810535adcc1f34dde90200864bb05bf475687872496a150a5c8f3fa0ae00eec2"
+    },
+    "ui#/status.up": {
+      "tr": "f6d83ad19b42545e5c5b858b46bdd79fedcbc062245fc8694442755b4de40457",
+      "en": "656eb7f9eb6a4eacec168e78baee9f8b0156820e29b4dc48bf4e6a5f5a899dbe"
+    },
+    "ui#/table.evidence": {
+      "tr": "255f208b3759c60bb0c6315fc1e979287e3d485d553f967e176ff28ae9d303b9",
+      "en": "03867aea70acaf4c5dce37a76cf5a04dab1716d6ff70bf03761c439daa8be984"
+    },
+    "ui#/table.skill": {
+      "tr": "e725777f077d64e69c1ef081469643a1778ccf829d26062dda79207e91b5ef3d",
+      "en": "6df1bb18a59ab97df82e307b93fe4f3bbda34d531bcbb79ec573dda23ba64918"
+    },
+    "ui#/table.years": {
+      "tr": "7a3d5c66c5127690508fdd404d9fbf551f9d646db953426b29c696167c6af7fe",
+      "en": "b68ca0811f132f73edc68e9d3bebb288ef036c1fef8aabe6d2c63a2b6bfa859c"
+    },
+    "ui#/theme.dark": {
+      "tr": "a9a9097f6063452d5dc17beddbf8dbd585fdbd16c8ffafcf8f8c2329ed88cae6",
+      "en": "3f11a5cc643ab5140966ef077d289165283d33669a68f0bed1efce3a9881384e"
+    },
+    "ui#/theme.light": {
+      "tr": "84b4de74671140ae640beea23d8c8ce0d87171a4cad3eb0f55ee5f79a45853c9",
+      "en": "3669a1b2770f0f397ce00265548b43387d4208de81249ee595b4dd45bb0659f5"
+    },
+    "ui#/theme.toggle": {
+      "tr": "220f80d848c2538c6508af986294d4b3cc34fc00e7f8c46a88e6491ae4598e90",
+      "en": "110ac417d7e018de4f266d2a5b8a719703748536a9c4297cc5c7227d46ace3ad"
+    }
+  }
+}

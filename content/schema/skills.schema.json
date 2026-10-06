@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SkillClaims",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "name": { "type": "string", "pattern": "\\S" },
+          "years": { "type": "integer", "minimum": 0, "maximum": 60 },
+          "evidence": {
+            "type": "array",
+            "$ref": "common.schema.json#/$defs/idList",
+            "minItems": 1
+          }
+        },
+        "required": ["id", "name", "years", "evidence"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false
+}

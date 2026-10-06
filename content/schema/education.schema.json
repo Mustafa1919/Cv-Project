@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EducationList",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "institution": { "$ref": "common.schema.json#/$defs/localizedText" },
+          "degree": { "$ref": "common.schema.json#/$defs/localizedText" },
+          "startYear": { "type": "integer", "minimum": 1950, "maximum": 2100 },
+          "endYear": { "type": "integer", "minimum": 1950, "maximum": 2100 }
+        },
+        "required": ["id", "institution", "degree", "startYear"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false
+}

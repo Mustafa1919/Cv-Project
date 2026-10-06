@@ -1,0 +1,39 @@
+name: Deniz Örnek
+targetRole:
+  tr: Yazılım geliştirici
+  en: Software developer
+summary:
+  tr: >-
+    Deniz Örnek, bu örnek içerik için oluşturulmuş kurgusal bir kişidir.
+    Güvenilir servisler geliştirir ve teknik kararlarını doğrulanabilir kanıtlarla açıklar.
+  en: >-
+    Deniz Örnek is a fictional person created for this sample content.
+    They build reliable services and explain technical decisions with verifiable evidence.
+location:
+  tr: İstanbul, Türkiye
+  en: Istanbul, Türkiye
+workPreference:
+  tr: Uzaktan çalışma ve açık iletişim
+  en: Remote work and open communication
+availability:
+  tr: Kurgusal projeler için görüşmeye açık
+  en: Available to discuss fictional projects
+links:
+  - id: personal-showcase
+    label:
+      tr: Kurgusal kişisel vitrin
+      en: Fictional personal showcase
+    url: https://example.com/deniz
+highlights:
+  - evidence: ev-project
+    text:
+      tr: Kuyruk işleme servisini geliştirdi.
+      en: Developed a queue processing service.
+  - evidence: ev-case-study
+    text:
+      tr: Kuyruk yenileme sürecindeki ödünleşimleri belgeledi.
+      en: Documented the trade-offs in the queue rewrite.
+  - evidence: ev-measurement
+    text:
+      tr: Servis davranışını ölçüm raporuyla görünür kıldı.
+      en: Made service behavior visible through a measurement report.

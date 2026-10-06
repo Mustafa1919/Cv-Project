@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CertificateList",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "name": { "$ref": "common.schema.json#/$defs/localizedText" },
+          "issuer": { "type": "string" },
+          "year": { "type": "integer", "minimum": 1950, "maximum": 2100 },
+          "inProgress": { "type": "boolean" },
+          "url": { "$ref": "common.schema.json#/$defs/httpsUrl" }
+        },
+        "required": ["id", "name", "issuer"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false
+}

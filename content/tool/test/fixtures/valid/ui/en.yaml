@@ -1,0 +1,12 @@
+navigation:
+  profile: Profile
+  projects: Projects
+  evidence: Evidence
+actions:
+  download: Download résumé
+  contact: Get in touch
+  viewEvidence: View evidence
+messages:
+  greeting: "Hello, {name}!"
+  projectNotice: "You can review the evidence for {project}."
+  empty: No content is available yet.

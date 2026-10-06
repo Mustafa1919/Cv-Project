@@ -1,0 +1,31 @@
+---
+import { siteConfig } from "../lib/config.ts";
+import { translator } from "../lib/i18n.ts";
+import type { Locale } from "../lib/i18n.ts";
+import { privacyPath } from "../lib/routes.ts";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = translator(locale);
+---
+
+<footer class="site mono">
+  <span
+    class="badge status-badge"
+    data-status-badge
+    data-state="unknown"
+    data-api-origin={siteConfig.apiOrigin}
+    data-label-up={t("status.up")}
+    data-label-down={t("status.down")}
+    role="status"
+    aria-atomic="true"
+  >
+    <span class="dot" aria-hidden="true"></span>
+    <span data-status-text>{t("status.neutral")}</span>
+  </span>
+  <p>{t("footer.staticNotice")}</p>
+  <a href={privacyPath(locale)}>{t("nav.privacy")}</a>
+</footer>

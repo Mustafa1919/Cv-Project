@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Common",
+  "type": "object",
+  "properties": {},
+  "required": [],
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "localizedText": {
+      "type": "object",
+      "properties": {
+        "tr": { "type": "string", "pattern": "\\S" },
+        "en": { "type": "string", "pattern": "\\S" }
+      },
+      "required": ["tr", "en"],
+      "additionalProperties": false
+    },
+    "localizedMarkdown": {
+      "type": "object",
+      "properties": {
+        "tr": { "type": "string", "pattern": "\\S" },
+        "en": { "type": "string", "pattern": "\\S" }
+      },
+      "required": ["tr", "en"],
+      "additionalProperties": false
+    },
+    "httpsUrl": {
+      "type": "string",
+      "pattern": "^https://\\S+$"
+    },
+    "yearMonth": {
+      "type": "string",
+      "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+    },
+    "idList": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    }
+  }
+}

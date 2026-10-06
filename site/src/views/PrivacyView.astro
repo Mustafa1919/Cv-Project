@@ -1,0 +1,27 @@
+---
+import Base from "../layouts/Base.astro";
+import { translator } from "../lib/i18n.ts";
+import type { Locale } from "../lib/i18n.ts";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = translator(locale);
+---
+
+<Base
+  locale={locale}
+  page={{ kind: "privacy" }}
+  pageTitle={t("privacy.title")}
+  description={t("site.descriptionPrivacy")}
+>
+  <p class="eyebrow mono">{t("nav.privacy")}</p>
+  <h1 class="page">{t("privacy.title")}</h1>
+  <p>{t("privacy.noCookies")}</p>
+  <p>{t("privacy.liveCookies")}</p>
+  <p>{t("privacy.rateLimiting")}</p>
+  <p>{t("privacy.localAssets")}</p>
+  <p>{t("privacy.statusRequest")}</p>
+</Base>

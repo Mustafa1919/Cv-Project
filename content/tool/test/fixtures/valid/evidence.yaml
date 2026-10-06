@@ -1,0 +1,37 @@
+items:
+  - id: ev-project
+    type: project
+    title:
+      tr: Kurgusal kuyruk servisi projesi
+      en: Fictional queue service project
+    ref: queue-service
+  - id: ev-case-study
+    type: case-study
+    title:
+      tr: Kuyruk yenileme vaka çalışması
+      en: Queue rewrite case study
+    ref: queue-rewrite
+  - id: ev-certificate
+    type: certificate
+    title:
+      tr: Kurgusal yazılım testi sertifikası
+      en: Fictional software testing certificate
+    ref: testing-foundations
+  - id: ev-decision
+    type: decision-record
+    title:
+      tr: Kuyruk işleme karar kaydı
+      en: Queue processing decision record
+    ref: kk-001
+  - id: ev-measurement
+    type: measurement-report
+    title:
+      tr: Kuyruk servisi ölçüm raporu
+      en: Queue service measurement report
+    ref: o-01
+  - id: ev-repository
+    type: repository
+    title:
+      tr: Kurgusal kuyruk servisi kaynak deposu
+      en: Fictional queue service source repository
+    url: https://example.com/repositories/queue-service

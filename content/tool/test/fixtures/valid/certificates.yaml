@@ -1,0 +1,15 @@
+items:
+  - id: testing-foundations
+    name:
+      tr: Kurgusal yazılım testi temelleri sertifikası
+      en: Fictional software testing foundations certificate
+    issuer: Kurgusal Öğrenme Atölyesi
+    year: 2022
+    url: https://example.com/certificates/testing-foundations
+  - id: reliability-workshop
+    name:
+      tr: Kurgusal servis güvenilirliği eğitimi
+      en: Fictional service reliability training
+    issuer: Kurgusal Güvenilirlik Okulu
+    inProgress: true
+    url: https://example.com/training/reliability-workshop

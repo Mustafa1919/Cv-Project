@@ -1,0 +1,25 @@
+---
+import Base from "../layouts/Base.astro";
+import { translator } from "../lib/i18n.ts";
+import type { Locale } from "../lib/i18n.ts";
+import { profilePath } from "../lib/routes.ts";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = translator(locale);
+---
+
+<Base
+  locale={locale}
+  page={{ kind: "notFound" }}
+  pageTitle={t("notFound.title")}
+  description={t("site.descriptionNotFound")}
+>
+  <p class="eyebrow mono">{t("nav.profile")}</p>
+  <h1 class="page">{t("notFound.title")}</h1>
+  <p>{t("notFound.text")}</p>
+  <a href={profilePath(locale)}>{t("notFound.back")}</a>
+</Base>

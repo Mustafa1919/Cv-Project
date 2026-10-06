@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Profile",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string", "pattern": "\\S" },
+    "targetRole": { "$ref": "common.schema.json#/$defs/localizedText" },
+    "summary": { "$ref": "common.schema.json#/$defs/localizedText" },
+    "location": { "$ref": "common.schema.json#/$defs/localizedText" },
+    "workPreference": { "$ref": "common.schema.json#/$defs/localizedText" },
+    "availability": { "$ref": "common.schema.json#/$defs/localizedText" },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "label": { "$ref": "common.schema.json#/$defs/localizedText" },
+          "url": { "$ref": "common.schema.json#/$defs/httpsUrl" }
+        },
+        "required": ["id", "label", "url"],
+        "additionalProperties": false
+      }
+    },
+    "highlights": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence": { "$ref": "common.schema.json#/$defs/id" },
+          "text": { "$ref": "common.schema.json#/$defs/localizedText" }
+        },
+        "required": ["evidence", "text"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["name", "targetRole", "summary", "location", "workPreference", "highlights"],
+  "additionalProperties": false
+}

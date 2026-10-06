@@ -1,0 +1,62 @@
+/* New class: status-badge. All other classes come from vitrin.css. */
+/* Reserve identical badge geometry for neutral, up, and down labels. */
+.status-badge {
+  width: min(100%, 24rem);
+  height: 1.8rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.status-badge [data-status-text] {
+  white-space: nowrap;
+}
+
+header.top nav a[aria-current="true"] {
+  color: var(--ink);
+}
+
+/* Keep small muted text on the page background, including Markdown headings. */
+.prose pre .muted {
+  color: var(--ink);
+}
+
+@media (max-width: 34rem) {
+  .status-badge {
+    font-size: 0.72rem;
+    letter-spacing: normal;
+  }
+}
+
+/* The status line is information, not a control: no frame, no pointer. */
+.status-badge,
+.status-badge:hover {
+  border: 0;
+  padding: 0;
+  width: auto;
+  color: var(--muted);
+  cursor: default;
+}
+
+/* Skill names stay whole; a narrow screen scrolls the table inside its own container. */
+.table-wrap table {
+  min-width: 21rem;
+}
+
+.table-wrap td {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.table-wrap td:first-child {
+  width: 36%;
+}
+
+/* Case study sections sit closer together than top-level page sections. */
+article section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+article h3 {
+  margin-bottom: 0.4rem;
+}

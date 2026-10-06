@@ -1,0 +1,51 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadContent } from "../lib/content.ts";
+import { pick, translator } from "../lib/i18n.ts";
+import type { Locale } from "../lib/i18n.ts";
+import { projectPath } from "../lib/routes.ts";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const content = loadContent();
+const t = translator(locale);
+---
+
+<Base
+  locale={locale}
+  page={{ kind: "projects" }}
+  pageTitle={t("projects.heading")}
+  description={t("site.descriptionProjects", { name: content.profile.name })}
+>
+  <p class="eyebrow mono">{t("nav.projects")}</p>
+  <h1 class="page">{t("projects.heading")}</h1>
+  <p class="lead">{t("projects.intro")}</p>
+  <section aria-labelledby="project-list-heading">
+    <h2 id="project-list-heading" class="visually-hidden">
+      {t("profile.projects")}
+    </h2>
+    <div class="project-list">
+      {content.projects.items.map((project) => {
+        const studies = content.caseStudiesByProjectId.get(project.id) ?? [];
+        return (
+          <article>
+            <h2>
+              <a href={projectPath(locale, project.id)}>{project.name}</a>
+            </h2>
+            <p>{pick(project.summary, locale)}</p>
+            {studies.length > 0 && (
+              <ul>
+                {studies.map((study) => (
+                  <li>{pick(study.title, locale)}</li>
+                ))}
+              </ul>
+            )}
+          </article>
+        );
+      })}
+    </div>
+  </section>
+</Base>

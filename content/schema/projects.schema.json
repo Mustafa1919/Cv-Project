@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProjectList",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "name": { "type": "string" },
+          "summary": { "$ref": "common.schema.json#/$defs/localizedText" },
+          "repository": { "$ref": "common.schema.json#/$defs/httpsUrl" },
+          "skills": { "$ref": "common.schema.json#/$defs/idList" }
+        },
+        "required": ["id", "name", "summary"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false
+}

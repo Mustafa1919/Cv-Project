@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "units": {
+    "case-studies/queue-rewrite.yaml#/cost": {
+      "tr": "4124d449181cf7af35dbeba2ebcef700f926f23d96832e7ea08070800b56dc85",
+      "en": "03508ed8abbfd3ca159af8fe8bc910d65c015d50627f86fda86d6346dcd80484"
+    },
+    "case-studies/queue-rewrite.yaml#/decision": {
+      "tr": "ee3c05bfc6f481d3da14d4d0294c2981c30dcbac72e9655699b93a8e69a1811d",
+      "en": "495a86476e8f34d1d7ceb0f522a46065602779425dd0c6bc5914ce000a8738d2"
+    },
+    "case-studies/queue-rewrite.yaml#/metrics/processing-duration/label": {
+      "tr": "4cce9aa4f7974820445e9167dca857d5919f1c98c679ecd994e9004a4f02837d",
+      "en": "9eacac846f0893d240bdbdd00dd04369e727082cd33f5c32211d5d731d3119c4"
+    },
+    "case-studies/queue-rewrite.yaml#/metrics/queue-wait/label": {
+      "tr": "e8ad36956712dfd23298555e7df7b774043f30476bf353f89ccc7020eccfd98b",
+      "en": "97aea8527c78d8712d8e30cb7a44e547fc4105a479320d39812fc0bce1d730b2"
+    },
+    "case-studies/queue-rewrite.yaml#/problem": {
+      "tr": "a9e6d22013a64071213bc2eebc5b8159c57b6850ac77f03e9389ba6efa2fd76a",
+      "en": "b61bfee61b548d4b60631d364c430e9a60b32e34aacf78efdf9c50a9e10a9406"
+    },
+    "case-studies/queue-rewrite.yaml#/result": {
+      "tr": "2e1fd107359a776337444145c0e906e4e0e172867feacb4d0e345d8d2e23c211",
+      "en": "f9841f8a30a4a7684130da4033de457a6bf3621bdd5c896e1d326e00e745129f"
+    },
+    "case-studies/queue-rewrite.yaml#/title": {
+      "tr": "e58874119334ec8d6aa81aab4c6036d3c59247c291cd70a29fbf7af21ef65466",
+      "en": "a5237670e46b03112cd32b4c04dcfa92017064a7464b1fbf081651a55e45de86"
+    },
+    "certificates.yaml#/items/reliability-workshop/name": {
+      "tr": "4331de69ef6efa73261ac812b321c22db0941005f802853706cabd5da71f6f1c",
+      "en": "54c415968f9e149f050043f626135a6ef8d81a86f8e35a8d2ed8d87e2ac47a81"
+    },
+    "certificates.yaml#/items/testing-foundations/name": {
+      "tr": "afd5b3d108d83989c202aaad623839a04f7d181a5b08869ce7191c75af4cd6a2",
+      "en": "3aa937a56feedfb81ff4255c00e92116af757ed3181617743d624fa4396b1351"
+    },
+    "education.yaml#/items/fictional-software-degree/degree": {
+      "tr": "a51102077007c24f949955bf220d4ae639eef809bb4d2b49bf284c46e3da7f00",
+      "en": "9914c286bf6020d7c73cd46f6991701833c44eef700daa1f310f606132c1feee"
+    },
+    "education.yaml#/items/fictional-software-degree/institution": {
+      "tr": "eaef5369ce9659f1e76885b0bc7f0f1ffaa05961ddc49b142cad3696b0fe6a4a",
+      "en": "e9f25c2fcbbf530c7b666f29c320090557324911e8a0a6f7453b971a2d51c166"
+    },
+    "evidence.yaml#/items/ev-case-study/title": {
+      "tr": "28cdeb58759b71b1f5a658b1e6617218d41556c86123915d72dd7acb2f9c07d1",
+      "en": "3deb23aaf9cb0cdccfa38b9f5399dc4493e7a419e9564b1c513079e94e887aea"
+    },
+    "evidence.yaml#/items/ev-certificate/title": {
+      "tr": "343799da548742730ceca2199eef9e677de1edb619f305a0e9ed91c8af2998be",
+      "en": "034e650321de49993905687322cf609a6ffc8a4a6b67716d4369c5b4202ab9bd"
+    },
+    "evidence.yaml#/items/ev-decision/title": {
+      "tr": "8d952650c09f09e4aed105ce755a86f51e4f0222358ca42717236775e076a024",
+      "en": "a1292467233388509ec3a42c0006bf3a5340eaa9b10401b5841f59f0fad3a58d"
+    },
+    "evidence.yaml#/items/ev-measurement/title": {
+      "tr": "37e486ee13bd70c79bc1bb37eff069e8ad9a3f14a338faaa58d2e61faa951548",
+      "en": "27f7e41c8636849b990e0bf370a8ffb1eb26e77b69d95be6e5f3717ab2184b89"
+    },
+    "evidence.yaml#/items/ev-project/title": {
+      "tr": "0a1bff227533757445726c96097fe0771668a421719011ff57d69e8546130200",
+      "en": "4898d5d1f3b36d95f72590018c5b28dfacc988ee12b30d5176a04fca29d51882"
+    },
+    "evidence.yaml#/items/ev-repository/title": {
+      "tr": "89efa0715410128e2765da51ee61ac7d13a2da26df2b633c2682b458e104785d",
+      "en": "c5f20f96b63948ddf2ff7e168abd5b71227e3e437c14673ede36c880dd161126"
+    },
+    "experience.yaml#/items/current-service-role/description": {
+      "tr": "da204dfbdbbe79bd05765214cdff8fba8473d005f9aacbb047194422554cf2e2",
+      "en": "59c7f7297ba544cbfc63aea034f8f559a35b06a0bc0e0c445fd68ee3ea978ba4"
+    },
+    "experience.yaml#/items/current-service-role/location": {
+      "tr": "d315a17dd36556fae15da28a4f0ff607f9f5f6fc20c3cb7c533e4ff4fd30c597",
+      "en": "f747e4e46bbbe4ef95efae024ce46f91cb30f0f9fd3def90762aa433c8cc2d84"
+    },
+    "experience.yaml#/items/current-service-role/title": {
+      "tr": "4f6074a6d4cf8bd98f2101951cfb548d5129b420e7eaaf8a087b55693cb99df5",
+      "en": "0f9f80b4c9a3f9dcef4f419fbbd2eb25a57295c4ba75db0735b48df826190c54"
+    },
+    "experience.yaml#/items/previous-tooling-role/description": {
+      "tr": "427dba62bd24f4a6f10222132b3cacdd3c4626770a48495b4d6b78f2446e1c51",
+      "en": "9a73052ae980c3665a2e936e7005a6f2016a827720c1c73fe79ef06d3d1cb74f"
+    },
+    "experience.yaml#/items/previous-tooling-role/title": {
+      "tr": "ffc19b91364ae6a6478b9f43822b35e4cddb0e5b13e427eb48e41462dfec286a",
+      "en": "a63efc4f64faf1f3cad358ee24f9c94a6f6b01726b35c9069c43eb211d986fb4"
+    },
+    "profile.yaml#/availability": {
+      "tr": "378a0744bc70cb03b624b2fc503d3c093f0b291dc5f01fe614bcc9067e952518",
+      "en": "998e565967878e71959fb6d937ecb71b1b7d011805a697828c5d5d1f71d561ba"
+    },
+    "profile.yaml#/highlights/0/text": {
+      "tr": "971d93e6d3b8c6a5939547b2b93cccb015658df5e477e2ea79db88b2810092f5",
+      "en": "404f5893e39a841b51ba893820afa0366b835a7b0d68439159e2eec020687a6a"
+    },
+    "profile.yaml#/highlights/1/text": {
+      "tr": "7a89c51d89af772ad6556fb1670e3bcf4056d10893fe9734cb0f001935e30051",
+      "en": "f59923d401f48aec6a9b018800947148b6c159079c6035485b917130e649a4a9"
+    },
+    "profile.yaml#/highlights/2/text": {
+      "tr": "9e3c1e991faf915aa8d5330f70cfa41561e484cbe439761735f3b0d237e27f0b",
+      "en": "da2a73fc741f02ccd6a8035fcec785ab82391d0695d4a3e333241d0f8793a9f8"
+    },
+    "profile.yaml#/links/personal-showcase/label": {
+      "tr": "bcdfdaffc08d5d7fa8c4997b59252492666162e48e6ff7c005c0dadbd4f6cbbc",
+      "en": "5d8fef81ad5ea3bade2c3d6cd817a5278de2092077521247e41c43e1a37d9159"
+    },
+    "profile.yaml#/location": {
+      "tr": "65f2ed69338812a53bb2ec7c2df8d76b01f657e70f638cfe915edc3c6eaf2c0e",
+      "en": "24e388815d841ffc93ffe148a6c246656ce64848c25e6597ae6d1b86939a754c"
+    },
+    "profile.yaml#/summary": {
+      "tr": "b1202fe534b6b2dae2878dd1df49f009fd0696167a998c40908f195bb81811ae",
+      "en": "b78efa9b92d90d90021c13c3d613c8fa90c7d71a9082903b29702e572397b643"
+    },
+    "profile.yaml#/targetRole": {
+      "tr": "4f6074a6d4cf8bd98f2101951cfb548d5129b420e7eaaf8a087b55693cb99df5",
+      "en": "0f9f80b4c9a3f9dcef4f419fbbd2eb25a57295c4ba75db0735b48df826190c54"
+    },
+    "profile.yaml#/workPreference": {
+      "tr": "8f483dfad9fd6b7b5e22b980e5744273678c6d17e96380687891b1fbd78e0a65",
+      "en": "7755fc1e067ca12046d76eab9781f2e9546be8b000fe497648389a88318383f3"
+    },
+    "projects.yaml#/items/content-workbench/summary": {
+      "tr": "966991ee20a9e1fa304de2fdf1d17eec88be23e4bfe959a7d71a2ce7b1692c26",
+      "en": "0ea10faa664cd306e78712621045c9136c4057dedd6b517fb8141ad56079761e"
+    },
+    "projects.yaml#/items/queue-service/summary": {
+      "tr": "5bab462bcb5af15cf1e3d6fd5f23a50cf63e44b03e68ba9b28d2bd6cf4fb4846",
+      "en": "4982c07cafb86a2a74b88eadc0caf9c88c60308f9e014895b515bf0d22bd8ee6"
+    },
+    "ui#/actions.contact": {
+      "tr": "3850b955c14b1aff970304a6ef1410d1446db50f9a4ad6b303514ea8a05ffd69",
+      "en": "115e410f01dc4013592a3d977a603094c0ed4e5e8ec8b31d18332b340edd3a1e"
+    },
+    "ui#/actions.download": {
+      "tr": "e1b5f7599281404d8cc06dd98dfef434a8e2da71562408f9e147d9a313066ef3",
+      "en": "92c0b58ff2428ea502dfdddf4b73336c29192ad6bea53f86b8a5e6c305293086"
+    },
+    "ui#/actions.viewEvidence": {
+      "tr": "7623fc9eb836d5c671aae9d1957a01cbc66aaefb1c521b15257564f94907903f",
+      "en": "2ed9337dcc8cf799bb0503543feee53bef011cd68daf0d4fa5bfbc2ce15e0f74"
+    },
+    "ui#/messages.empty": {
+      "tr": "63432633aeb5e2e9919306e8244734cf2d5866cdb29d8799b4bce567fb8c6d3e",
+      "en": "d68648a59c223e99b0147ba858817393eaa74fc7211b15e7d28bef6b23323638"
+    },
+    "ui#/messages.greeting": {
+      "tr": "50e55cce7cf2e954cc0eab47825087cbfdb80f93e870a3db11ff7b9afb334c93",
+      "en": "48e1645a3bf4c08fc0e1819c5ba4813f9fb385f957556196a6aedb88721e2266"
+    },
+    "ui#/messages.projectNotice": {
+      "tr": "91a5a408f5c2fe36327bc82b160c553effbb13f7b6d086333e5c91b667d06067",
+      "en": "5f4822ce9f2ef3b5fec922847b718c2cd16202a8cc126e033d03544ce76ef355"
+    },
+    "ui#/navigation.evidence": {
+      "tr": "d7f5fdb60cc9366e2f6786635a924216219d2e8bb48007bfe208114066d9d945",
+      "en": "03867aea70acaf4c5dce37a76cf5a04dab1716d6ff70bf03761c439daa8be984"
+    },
+    "ui#/navigation.profile": {
+      "tr": "e267d343821f264e61be7d66ef27acd640e0cdb4ef2df9b54ad6ebff0f3ab35f",
+      "en": "d696a35bdd1883da07a8d6c41bb7a3153381b23aa197629ee273479a6eaa5a9c"
+    },
+    "ui#/navigation.projects": {
+      "tr": "30bcb5bccd3e2e26fc5648fc06db605d752f23672ef83007894be2fe567f5457",
+      "en": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada"
+    }
+  }
+}

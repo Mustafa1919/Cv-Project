@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CaseStudy",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "project": { "$ref": "common.schema.json#/$defs/id" },
+    "title": { "$ref": "common.schema.json#/$defs/localizedText" },
+    "problem": { "$ref": "common.schema.json#/$defs/localizedMarkdown" },
+    "decision": { "$ref": "common.schema.json#/$defs/localizedMarkdown" },
+    "cost": { "$ref": "common.schema.json#/$defs/localizedMarkdown" },
+    "result": { "$ref": "common.schema.json#/$defs/localizedMarkdown" },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "label": { "$ref": "common.schema.json#/$defs/localizedText" },
+          "value": { "type": "number" },
+          "unit": { "type": "string" },
+          "source": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "report": { "$ref": "common.schema.json#/$defs/id" }
+                },
+                "required": ["report"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "url": { "$ref": "common.schema.json#/$defs/httpsUrl" }
+                },
+                "required": ["url"],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": ["id", "label", "value", "unit", "source"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["id", "project", "title", "problem", "decision", "cost", "result"],
+  "additionalProperties": false
+}

@@ -1,0 +1,12 @@
+navigation:
+  profile: Profil
+  projects: Projeler
+  evidence: Kanıtlar
+actions:
+  download: Özgeçmişi indir
+  contact: İletişime geç
+  viewEvidence: Kanıtı incele
+messages:
+  greeting: "Merhaba, {name}!"
+  projectNotice: "{project} için kanıtları inceleyebilirsiniz."
+  empty: Henüz içerik bulunmuyor.

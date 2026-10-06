@@ -1,0 +1,19 @@
+---
+import type { GetStaticPaths } from "astro";
+import { loadContent } from "../../../../lib/content.ts";
+import ProjectView from "../../../../views/ProjectView.astro";
+
+interface Props {
+  projectId: string;
+}
+
+export const getStaticPaths = (() =>
+  loadContent().projects.items.map((project) => ({
+    params: { id: project.id },
+    props: { projectId: project.id },
+  }))) satisfies GetStaticPaths;
+
+const { projectId } = Astro.props;
+---
+
+<ProjectView locale="en" projectId={projectId} />

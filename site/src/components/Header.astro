@@ -1,0 +1,66 @@
+---
+import { loadContent } from "../lib/content.ts";
+import { translator } from "../lib/i18n.ts";
+import type { Locale } from "../lib/i18n.ts";
+import {
+  alternate,
+  pdfPath,
+  profilePath,
+  projectsPath,
+} from "../lib/routes.ts";
+import type { Page } from "../lib/routes.ts";
+
+interface Props {
+  locale: Locale;
+  page: Page;
+}
+
+const { locale, page } = Astro.props;
+const t = translator(locale);
+const otherLocale: Locale = locale === "tr" ? "en" : "tr";
+const otherT = translator(otherLocale);
+const otherLanguageName = otherT(
+  otherLocale === "tr" ? "language.tr" : "language.en",
+);
+const name = loadContent().profile.name;
+const projectsCurrent =
+  page.kind === "projects"
+    ? "page"
+    : page.kind === "project"
+      ? "true"
+      : undefined;
+---
+
+<header class="top">
+  <a class="name mono" href={profilePath(locale)}>{name}</a>
+  <nav class="mono" aria-label={t("nav.mainLabel")}>
+    <a
+      href={profilePath(locale)}
+      aria-current={page.kind === "profile" ? "page" : undefined}
+    >
+      {t("nav.profile")}
+    </a>
+    <a href={projectsPath(locale)} aria-current={projectsCurrent}>
+      {t("nav.projects")}
+    </a>
+  </nav>
+  <div class="tools mono">
+    <a href={pdfPath(locale)}>{t("actions.pdf")}</a>
+    <span>
+      <strong>{locale}</strong>
+      {" · "}
+      <a
+        href={alternate(page, locale)}
+        lang={otherLocale}
+        hreflang={otherLocale}
+        aria-label={t("language.switchLabel", { language: otherLanguageName })}
+      >
+        {otherLocale}
+      </a>
+    </span>
+    <button type="button" hidden data-theme-toggle aria-pressed="false">
+      <span class="visually-hidden">{t("theme.toggle")}</span>
+      <span aria-hidden="true">{t("theme.dark")}</span>
+    </button>
+  </div>
+</header>

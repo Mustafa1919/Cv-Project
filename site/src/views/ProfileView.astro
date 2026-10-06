@@ -1,0 +1,235 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadContent } from "../lib/content.ts";
+import type { SiteContent } from "../lib/content.ts";
+import { evidenceLink, evidenceTypeKey } from "../lib/evidence.ts";
+import { formatPeriod } from "../lib/format.ts";
+import { pick, translator } from "../lib/i18n.ts";
+import type { Locale } from "../lib/i18n.ts";
+import { renderMarkdown } from "../lib/markdown.ts";
+import { pdfPath, projectPath } from "../lib/routes.ts";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const content = loadContent();
+const { profile } = content;
+const t = translator(locale);
+const presentLabel = t("dates.present");
+
+function getEvidence(id: string): SiteContent["evidence"]["items"][number] {
+  const item = content.evidenceById.get(id);
+  if (item === undefined) {
+    throw new Error(`Missing evidence: ${id}`);
+  }
+  return item;
+}
+
+function skillNames(ids: readonly string[]): string {
+  return ids.map((id) => {
+    const skill = content.skills.items.find((item) => item.id === id);
+    if (skill === undefined) {
+      throw new Error(`Missing skill: ${id}`);
+    }
+    return skill.name;
+  }).join(" · ");
+}
+---
+
+<Base
+  locale={locale}
+  page={{ kind: "profile" }}
+  pageTitle={t("nav.profile")}
+  description={t("site.descriptionProfile", { name: profile.name })}
+  ogType="profile"
+>
+  <p class="eyebrow mono">{t("nav.profile")}</p>
+  <h1>{profile.name}</h1>
+  <p class="role">{pick(profile.targetRole, locale)}</p>
+  <p class="meta mono">
+    {pick(profile.location, locale)}
+    {" · "}
+    {pick(profile.workPreference, locale)}
+    {profile.availability !== undefined && (
+      <>
+        {" · "}
+        {pick(profile.availability, locale)}
+      </>
+    )}
+  </p>
+  <p class="lead">{pick(profile.summary, locale)}</p>
+  <div class="actions">
+    <a class="btn" href={pdfPath(locale)}>{t("actions.pdf")}</a>
+    {profile.links?.map((link) => (
+      <a href={link.url} rel="noopener noreferrer">
+        {pick(link.label, locale)}
+      </a>
+    ))}
+  </div>
+
+  <section aria-labelledby="strongest-evidence">
+    <h2 id="strongest-evidence">{t("profile.strongestEvidence")}</h2>
+    <ol class="proofs">
+      {profile.highlights.map((highlight) => {
+        const evidence = getEvidence(highlight.evidence);
+        const link = evidenceLink(evidence, locale, content);
+        return (
+          <li>
+            <div>
+              <strong>
+                {link === null ? (
+                  pick(evidence.title, locale)
+                ) : (
+                  <a
+                    href={link.href}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                  >
+                    {pick(evidence.title, locale)}
+                  </a>
+                )}
+              </strong>
+              <p>{pick(highlight.text, locale)}</p>
+              <span class="tag">{t(evidenceTypeKey(evidence.type))}</span>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  </section>
+
+  <section aria-labelledby="skills">
+    <h2 id="skills">{t("profile.skills")}</h2>
+    <p class="note">{t("profile.skillsNote")}</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="skills">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">{t("table.skill")}</th>
+            <th class="num" scope="col">{t("table.years")}</th>
+            <th scope="col">{t("table.evidence")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {content.skills.items.map((skill) => (
+            <tr>
+              <td>{skill.name}</td>
+              <td class="num mono">{skill.years}</td>
+              <td>
+                {skill.evidence.map((id, index) => {
+                  const evidence = getEvidence(id);
+                  const link = evidenceLink(evidence, locale, content);
+                  return (
+                    <>
+                      {index > 0 && ", "}
+                      {link === null ? (
+                        pick(evidence.title, locale)
+                      ) : (
+                        <a
+                          href={link.href}
+                          rel={link.external ? "noopener noreferrer" : undefined}
+                        >
+                          {pick(evidence.title, locale)}
+                        </a>
+                      )}
+                    </>
+                  );
+                })}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="experience">
+    <h2 id="experience">{t("profile.experience")}</h2>
+    <dl class="exp">
+      {content.experience.items.map((item) => (
+        <>
+          <dt class="mono">
+            {formatPeriod(item.start, item.end, locale, presentLabel)}
+          </dt>
+          <dd>
+            <h3>{pick(item.title, locale)}</h3>
+            <span>{item.organization}</span>
+            {item.location !== undefined && (
+              <span>{pick(item.location, locale)}</span>
+            )}
+            <div
+              class="prose"
+              set:html={renderMarkdown(pick(item.description, locale))}
+            ></div>
+            {item.skills !== undefined && item.skills.length > 0 && (
+              <p class="mono muted">{skillNames(item.skills)}</p>
+            )}
+          </dd>
+        </>
+      ))}
+    </dl>
+  </section>
+
+  <section aria-labelledby="projects">
+    <h2 id="projects">{t("profile.projects")}</h2>
+    <ul class="project-list">
+      {content.projects.items.map((project) => (
+        <li>
+          <h3>
+            <a href={projectPath(locale, project.id)}>{project.name}</a>
+          </h3>
+          <p>{pick(project.summary, locale)}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="education">
+    <h2 id="education">{t("profile.education")}</h2>
+    <dl class="exp">
+      {content.education.items.map((item) => (
+        <>
+          <dt class="mono">
+            {formatPeriod(item.startYear, item.endYear, locale, presentLabel)}
+          </dt>
+          <dd>
+            <h3>{pick(item.institution, locale)}</h3>
+            <span>{pick(item.degree, locale)}</span>
+          </dd>
+        </>
+      ))}
+    </dl>
+  </section>
+
+  <section aria-labelledby="certificates">
+    <h2 id="certificates">{t("profile.certificates")}</h2>
+    <ul class="project-list">
+      {content.certificates.items.map((certificate) => (
+        <li>
+          <h3>
+            {certificate.url === undefined ? (
+              pick(certificate.name, locale)
+            ) : (
+              <a href={certificate.url} rel="noopener noreferrer">
+                {pick(certificate.name, locale)}
+              </a>
+            )}
+          </h3>
+          <p class="meta mono">
+            {certificate.issuer}
+            {certificate.year !== undefined && (
+              <>
+                {" · "}
+                {certificate.year}
+              </>
+            )}
+          </p>
+          {certificate.inProgress === true && (
+            <span class="tag">{t("certificates.inProgress")}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

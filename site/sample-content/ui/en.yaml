@@ -1,0 +1,77 @@
+site:
+  title: "{page} — {name}"
+  descriptionProfile: "{name}: professional profile, experience, and skills supported by concrete evidence."
+  descriptionProjects: "{name}: projects, technical decisions, and measured outcomes."
+  descriptionProject: "{project}: the problem, technical decisions, cost, and outcomes."
+  descriptionPrivacy: "How this site handles cookies, visitor information, and the live system status request."
+  descriptionNotFound: "The page you requested could not be found. Return to the profile to continue."
+nav:
+  profile: "Profile"
+  projects: "Projects"
+  privacy: "Privacy"
+  mainLabel: "Main navigation"
+  skipLink: "Skip to main content"
+language:
+  switchLabel: "View this site in {language}"
+  tr: "Turkish"
+  en: "English"
+theme:
+  toggle: "Switch between light and dark themes"
+  light: "Light theme"
+  dark: "Dark theme"
+actions:
+  pdf: "Download CV as PDF"
+profile:
+  strongestEvidence: "Strongest evidence"
+  skills: "Skills"
+  experience: "Experience"
+  projects: "Projects"
+  education: "Education"
+  certificates: "Certificates"
+  skillsNote: "Every skill is tied to at least one piece of evidence. A skill without evidence is not listed here."
+table:
+  skill: "Skill"
+  years: "Years"
+  evidence: "Evidence"
+evidence:
+  project: "Project"
+  caseStudy: "Case study"
+  certificate: "Certificate"
+  decisionRecord: "Decision record"
+  measurementReport: "Measurement report"
+  repository: "Repository"
+dates:
+  present: "present"
+certificates:
+  inProgress: "In progress"
+projects:
+  heading: "Projects"
+  intro: "The problems, technical choices, and outcomes behind each project, with inspectable evidence for every claim."
+caseStudy:
+  problem: "Problem"
+  decision: "Decision"
+  cost: "Cost"
+  result: "Measured result"
+  metrics: "Metrics"
+  source: "Source"
+  measurementReport: "Measurement report"
+  repository: "Repository"
+  backToProjects: "Back to projects"
+  noCaseStudy: "No case study has been published for this project yet."
+status:
+  neutral: "Live system"
+  up: "Live system is running"
+  down: "Live system is currently down"
+footer:
+  staticNotice: "This page is served statically; it opens even when the system is down."
+privacy:
+  title: "Privacy"
+  noCookies: "The profile pages set no cookies."
+  liveCookies: "Cookies are used only on live application pages, to manage the session."
+  rateLimiting: "The visitor's IP address is not stored. A keyed hash of the address is kept for a limited time for rate limiting."
+  localAssets: "Fonts and scripts are served from this site; no third-party requests are made for these assets."
+  statusRequest: "The live system badge sends one request to the API without cookies to check the system's status. No request is made when JavaScript is disabled."
+notFound:
+  title: "Page not found"
+  text: "There is no page at this address. The link may have changed; return to the profile to continue."
+  back: "Back to profile"

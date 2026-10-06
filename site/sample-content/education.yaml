@@ -1,0 +1,10 @@
+items:
+  - id: fictional-software-degree
+    institution:
+      tr: Kurgusal Düş Üniversitesi
+      en: Fictional Dream University
+    degree:
+      tr: Yazılım mühendisliği lisansı
+      en: Bachelor of Software Engineering
+    startYear: 2017
+    endYear: 2021
