@@ -1,1 +1,2 @@
 com.mstech.vitrin.platform.PlatformAutoConfiguration
+com.mstech.vitrin.platform.logging.OtlpLogBridgeAutoConfiguration

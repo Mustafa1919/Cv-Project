@@ -19,6 +19,15 @@ jqwik = "1.10.1"
 # 2025.1.x is the release train for Boot 4.0.
 spring-cloud = "2025.1.3"
 bucket4j = "8.21.0"
+# Matches the OpenTelemetry SDK 1.55 that the Spring Boot BOM manages.
+opentelemetry-logback-appender = "2.21.0-alpha"
+
+# Security overrides of versions managed by the Spring Boot 4.0.8 BOM (found by the image scan).
+# Remove each one when a Boot release manages a version at least this high.
+# CVE-2026-65182, CVE-2026-65905, CVE-2026-68525
+tomcat = "11.0.26"
+# CVE-2026-89407, CVE-2026-89425, CVE-2026-68497, CVE-2026-91776, CVE-2026-91777
+jackson-bom = "3.1.7"
 
 [libraries]
 spring-boot-gradle-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
@@ -36,6 +45,11 @@ spring-cloud-dependencies = { module = "org.springframework.cloud:spring-cloud-d
 spring-cloud-starter-gateway-server-webmvc = { module = "org.springframework.cloud:spring-cloud-starter-gateway-server-webmvc" }
 bucket4j-core = { module = "com.bucket4j:bucket4j_jdk17-core", version.ref = "bucket4j" }
 bucket4j-lettuce = { module = "com.bucket4j:bucket4j_jdk17-lettuce", version.ref = "bucket4j" }
+opentelemetry-logback-appender = { module = "io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0", version.ref = "opentelemetry-logback-appender" }
+jackson-bom = { module = "tools.jackson:jackson-bom", version.ref = "jackson-bom" }
+tomcat-embed-core = { module = "org.apache.tomcat.embed:tomcat-embed-core", version.ref = "tomcat" }
+tomcat-embed-el = { module = "org.apache.tomcat.embed:tomcat-embed-el", version.ref = "tomcat" }
+tomcat-embed-websocket = { module = "org.apache.tomcat.embed:tomcat-embed-websocket", version.ref = "tomcat" }
 
 # Versions below come from the Spring Boot BOM.
 spring-boot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc" }
@@ -50,3 +64,7 @@ spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-star
 spring-boot-starter-data-redis = { module = "org.springframework.boot:spring-boot-starter-data-redis" }
 testcontainers = { module = "org.testcontainers:testcontainers" }
 testcontainers-junit-jupiter = { module = "org.testcontainers:testcontainers-junit-jupiter" }
+logback-classic = { module = "ch.qos.logback:logback-classic" }
+opentelemetry-api = { module = "io.opentelemetry:opentelemetry-api" }
+opentelemetry-sdk = { module = "io.opentelemetry:opentelemetry-sdk" }
+opentelemetry-sdk-testing = { module = "io.opentelemetry:opentelemetry-sdk-testing" }

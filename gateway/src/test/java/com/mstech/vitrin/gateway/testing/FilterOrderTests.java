@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.mstech.vitrin.gateway.auth.AccessTokenFilter;
 import com.mstech.vitrin.gateway.auth.RoleFilter;
 import com.mstech.vitrin.gateway.auth.StateChangeFilter;
+import com.mstech.vitrin.gateway.edge.AccessLogFilter;
 import com.mstech.vitrin.gateway.edge.EdgeFilter;
 import com.mstech.vitrin.gateway.edge.FilterOrder;
 import com.mstech.vitrin.gateway.ratelimit.AddressQuotaFilter;
@@ -26,6 +27,7 @@ class FilterOrderTests {
     void constantsAreStrictlyIncreasing() {
         int[] orders = {
             FilterOrder.EDGE,
+            FilterOrder.ACCESS_LOG,
             FilterOrder.ROUTE,
             FilterOrder.ADDRESS_QUOTA,
             FilterOrder.PREFLIGHT,
@@ -56,6 +58,7 @@ class FilterOrderTests {
     static Stream<Arguments> filterOrders() {
         return Stream.of(
                 Arguments.of(EdgeFilter.class, FilterOrder.EDGE),
+                Arguments.of(AccessLogFilter.class, FilterOrder.ACCESS_LOG),
                 Arguments.of(RouteFilter.class, FilterOrder.ROUTE),
                 Arguments.of(AddressQuotaFilter.class, FilterOrder.ADDRESS_QUOTA),
                 Arguments.of(PreflightFilter.class, FilterOrder.PREFLIGHT),

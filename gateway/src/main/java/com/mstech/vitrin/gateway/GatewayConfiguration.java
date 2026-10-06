@@ -6,6 +6,7 @@ import com.mstech.vitrin.gateway.auth.JwksClient;
 import com.mstech.vitrin.gateway.auth.JwksKeySource;
 import com.mstech.vitrin.gateway.auth.RoleFilter;
 import com.mstech.vitrin.gateway.auth.StateChangeFilter;
+import com.mstech.vitrin.gateway.edge.AccessLogFilter;
 import com.mstech.vitrin.gateway.edge.ClientAddressResolver;
 import com.mstech.vitrin.gateway.edge.EdgeFilter;
 import com.mstech.vitrin.gateway.edge.GatewayProblems;
@@ -148,6 +149,11 @@ public class GatewayConfiguration {
     @Bean
     public EdgeFilter edgeFilter(ClientAddressResolver addresses, GatewayProperties properties) {
         return new EdgeFilter(addresses, properties);
+    }
+
+    @Bean
+    public AccessLogFilter accessLogFilter() {
+        return new AccessLogFilter();
     }
 
     @Bean

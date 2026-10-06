@@ -23,6 +23,13 @@ java {
 
 dependencies {
     implementation(platform(SpringBootPlugin.BOM_COORDINATES))
+    // Security overrides; the reasons and removal condition are in the version catalog.
+    implementation(platform(libs.findLibrary("jackson-bom").get()))
+    constraints {
+        implementation(libs.findLibrary("tomcat-embed-core").get())
+        implementation(libs.findLibrary("tomcat-embed-el").get())
+        implementation(libs.findLibrary("tomcat-embed-websocket").get())
+    }
 
     errorprone(libs.findLibrary("errorprone-core").get())
     errorprone(libs.findLibrary("nullaway").get())
