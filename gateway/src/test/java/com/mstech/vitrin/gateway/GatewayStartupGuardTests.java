@@ -23,7 +23,7 @@ class GatewayStartupGuardTests {
 
     @Test
     void refusesProductionWithoutSiteOrigin(@TempDir Path dir) throws Exception {
-        Path key = Files.writeString(dir.resolve("key"), "k");
+        Path key = Files.writeString(dir.resolve("key"), "k".repeat(32));
 
         assertRefused(
                 "'vitrin.site.origin'",
@@ -41,7 +41,7 @@ class GatewayStartupGuardTests {
 
     @Test
     void startsInProductionWhenEverythingIsPresent(@TempDir Path dir) throws Exception {
-        Path key = Files.writeString(dir.resolve("key"), "k");
+        Path key = Files.writeString(dir.resolve("key"), "k".repeat(32));
 
         try (ConfigurableApplicationContext context =
                 run(

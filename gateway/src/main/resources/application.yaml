@@ -3,6 +3,26 @@ spring:
     name: gateway
   config:
     import: classpath:platform-defaults.yaml
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 250ms
+      connect-timeout: 250ms
+  http:
+    clients:
+      # Bound synchronous proxy calls independently of the health and JWKS clients.
+      connect-timeout: 1s
+      read-timeout: 5s
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          # Core must not receive forwarding headers invented by the proxy.
+          x-forwarded-request-headers-filter:
+            enabled: false
+          forwarded-request-headers-filter:
+            enabled: false
 
 server:
   port: 8080
@@ -11,7 +31,7 @@ management:
   server:
     port: 9080
 
-# Checked by the startup guard; the service refuses to start in production without these.
+# Checked by the startup guard before production-sensitive beans are initialized.
 vitrin:
   guard:
     required-in-production:
