@@ -1,0 +1,21 @@
+#!/bin/sh
+# Enabled per clone with: git config core.hooksPath .githooks
+set -eu
+
+# Commits must carry the identity set for this repository, never the machine-wide one.
+if [ -z "$(git config --local --get user.email || true)" ]; then
+    echo "pre-commit: no repository-local user.email." >&2
+    echo "  git config --local user.name  \"...\"" >&2
+    echo "  git config --local user.email \"...\"" >&2
+    exit 1
+fi
+
+# Nothing to format when no Java file is staged.
+if ! git diff --cached --name-only --diff-filter=ACMR | grep -q '\.java$'; then
+    exit 0
+fi
+
+if ! ./gradlew spotlessCheck --quiet --console=plain; then
+    echo "pre-commit: formatting violations. Run ./gradlew spotlessApply and stage the result." >&2
+    exit 1
+fi
