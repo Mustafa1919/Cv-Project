@@ -257,6 +257,22 @@
       "tr": "54862c4b8a11fca611f9d9343005283a37afbbc2d9b407711ae16e9edfb7e600",
       "en": "a469ab4ca4e55bf547566e9ebfa1b809c933207e9d558156bc0c4252b17533fe"
     },
+    "ui#/print.description": {
+      "tr": "244842402ab3e15ad42ed06bf9b31d8b0a7d9e0fcb2b383aac50e7a69cf2bba6",
+      "en": "af7bcb2e82988d57bd9fcd7420c8902fd135a950fe611479905ea06667810bd9"
+    },
+    "ui#/print.site": {
+      "tr": "fa7955814e32aed3a240ee46fcd053dd48f320d4e6e18d2b2774e491c5f75834",
+      "en": "b5a229ac8becc6035511f432ca6018f581f0627233eada6ae8e12b505d44af7f"
+    },
+    "ui#/print.title": {
+      "tr": "827a9bb66a4b095b9ee8f035690b202661055b197bab216a09ed5883f249497f",
+      "en": "6f1162118aff3ccdc361bb146014ca79dca5d79a1eb7c8aa6603438a5c59a51d"
+    },
+    "ui#/print.years": {
+      "tr": "2a04a624e46cef188afc6068f4fe6ee6d487cfbaa9e1e07ac28e7444f9b3b994",
+      "en": "00703407fd6925dfec24f2fbd19ca80d48ecc1362d02e82c8a5c18a68e4a0abc"
+    },
     "ui#/privacy.liveCookies": {
       "tr": "c08ce21f137cf6f63e54e3952c82a256a348ff0e1bd7a98121b8dddd0beb2770",
       "en": "1157ada74a80307bd6cc72a2a2f2eb0426572894c1c8270b3819b9b7d6a0c7b5"

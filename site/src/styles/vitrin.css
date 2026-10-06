@@ -224,6 +224,8 @@ h1.page {
 }
 
 .role {
+  /* The italic face is the static family (see fonts.css). */
+  font-family: "Source Serif 4", var(--serif);
   font-style: italic;
   font-size: 1.5rem;
   margin: 0.6rem 0 0;
@@ -264,6 +266,8 @@ section {
 
 .note {
   color: var(--muted);
+  /* The italic face is the static family (see fonts.css). */
+  font-family: "Source Serif 4", var(--serif);
   font-style: italic;
   margin: -0.25rem 0 1.25rem;
   font-size: 1.05rem;

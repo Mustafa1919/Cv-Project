@@ -75,3 +75,8 @@ notFound:
   title: "Page not found"
   text: "There is no page at this address. The link may have changed; return to the profile to continue."
   back: "Back to profile"
+print:
+  title: "{name} — Résumé"
+  description: "{name}: one-page résumé with experience, skills and evidence."
+  site: "Website"
+  years: "{years} yr"

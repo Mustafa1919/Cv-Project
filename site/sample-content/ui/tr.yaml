@@ -75,3 +75,8 @@ notFound:
   title: "Sayfa bulunamadı"
   text: "Bu adreste bir sayfa yok. Bağlantı değişmiş olabilir; profile dönerek devam edebilirsiniz."
   back: "Profile dön"
+print:
+  title: "{name} — Özgeçmiş"
+  description: "{name}: tek sayfalık özgeçmiş; deneyim, yetenekler ve kanıtlar."
+  site: "Site"
+  years: "{years} yıl"

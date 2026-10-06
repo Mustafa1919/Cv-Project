@@ -1,0 +1,147 @@
+---
+import Print from "../layouts/Print.astro";
+import type { Locale } from "../lib/i18n.ts";
+import { pick, translator } from "../lib/i18n.ts";
+import { loadContent } from "../lib/content.ts";
+import { siteConfig } from "../lib/config.ts";
+import { evidenceTypeKey } from "../lib/evidence.ts";
+import { formatPeriod } from "../lib/format.ts";
+import { renderMarkdown } from "../lib/markdown.ts";
+import { profilePath } from "../lib/routes.ts";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const content = loadContent();
+const { profile } = content;
+const t = translator(locale);
+const presentLabel = t("dates.present");
+const profileUrl = siteConfig.siteOrigin + profilePath(locale);
+
+const highlights = profile.highlights.map((highlight) => {
+  const evidence = content.evidenceById.get(highlight.evidence);
+  if (evidence === undefined) {
+    throw new Error(
+      `Print résumé: unresolved evidence id "${highlight.evidence}" (${locale}).`,
+    );
+  }
+  return { highlight, evidence };
+});
+---
+
+<Print locale={locale} name={profile.name}>
+  <header class="cv-head">
+    <h1>{profile.name}</h1>
+    <p class="cv-role">{pick(profile.targetRole, locale)}</p>
+    <p class="cv-meta">
+      {pick(profile.location, locale)}{" · "}{pick(profile.workPreference, locale)}
+    </p>
+    <p class="cv-site">
+      {t("print.site")}{": "}<a href={profileUrl}>{profileUrl}</a>
+    </p>
+    {profile.links !== undefined && (
+      <ul class="cv-links">
+        {profile.links.map((link) => (
+          <li>
+            {pick(link.label, locale)}{": "}<a href={link.url}>{link.url}</a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </header>
+
+  <p class="cv-summary">{pick(profile.summary, locale)}</p>
+
+  <section class="cv-section" aria-labelledby="cv-evidence">
+    <h2 id="cv-evidence">{t("profile.strongestEvidence")}</h2>
+    <ol class="cv-evidence">
+      {highlights.map(({ highlight, evidence }) => (
+        <li>
+          <strong>{pick(evidence.title, locale)}</strong>
+          {" — "}{pick(highlight.text, locale)}
+          {" ("}{t(evidenceTypeKey(evidence.type))}{")"}
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="cv-section" aria-labelledby="cv-skills">
+    <h2 id="cv-skills">{t("profile.skills")}</h2>
+    <ul class="cv-skills">
+      {content.skills.items.map((skill) => (
+        <li>
+          {skill.name}{" "}
+          <span class="cv-years">{t("print.years", { years: skill.years })}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="cv-section" aria-labelledby="cv-experience">
+    <h2 id="cv-experience">{t("profile.experience")}</h2>
+    {content.experience.items.map((item) => (
+      <article class="cv-item">
+        <h3>{pick(item.title, locale)}</h3>
+        <p class="cv-item-meta">
+          {item.organization}
+          {item.location !== undefined && (
+            <>{" · "}{pick(item.location, locale)}</>
+          )}
+          {" · "}
+          <span class="cv-period">
+            {formatPeriod(item.start, item.end, locale, presentLabel)}
+          </span>
+        </p>
+        <div
+          class="cv-prose"
+          set:html={renderMarkdown(pick(item.description, locale))}
+        ></div>
+      </article>
+    ))}
+  </section>
+
+  <section class="cv-section" aria-labelledby="cv-projects">
+    <h2 id="cv-projects">{t("profile.projects")}</h2>
+    <ul class="cv-projects">
+      {content.projects.items.map((project) => (
+        <li>
+          <strong>{project.name}</strong>{" — "}{pick(project.summary, locale)}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="cv-section" aria-labelledby="cv-education">
+    <h2 id="cv-education">{t("profile.education")}</h2>
+    <ul class="cv-list">
+      {content.education.items.map((item) => (
+        <li>
+          {pick(item.institution, locale)}{" — "}{pick(item.degree, locale)}
+          {" · "}
+          <span class="cv-period">
+            {formatPeriod(item.startYear, item.endYear, locale, presentLabel)}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="cv-section" aria-labelledby="cv-certificates">
+    <h2 id="cv-certificates">{t("profile.certificates")}</h2>
+    <ul class="cv-list">
+      {content.certificates.items.map((certificate) => (
+        <li>
+          {pick(certificate.name, locale)}{" — "}{certificate.issuer}
+          {certificate.year !== undefined && (
+            <>{" · "}{certificate.year}</>
+          )}
+          {certificate.inProgress === true && (
+            <>{" ("}{t("certificates.inProgress")}{")"}</>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+</Print>

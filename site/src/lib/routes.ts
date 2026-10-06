@@ -44,6 +44,10 @@ export function pdfPath(locale: Locale): string {
   return locale === "tr" ? "/cv.pdf" : "/en/cv.pdf";
 }
 
+export function printPath(locale: Locale): string {
+  return locale === "tr" ? "/cv/" : "/en/cv/";
+}
+
 export function pagePath(page: Page, locale: Locale): string {
   switch (page.kind) {
     case "profile":

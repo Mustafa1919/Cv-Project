@@ -66,6 +66,10 @@ export const UI_KEYS = [
   "notFound.title",
   "notFound.text",
   "notFound.back",
+  "print.title",
+  "print.description",
+  "print.site",
+  "print.years",
 ] as const;
 
 export type UiKey = (typeof UI_KEYS)[number];

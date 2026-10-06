@@ -208,6 +208,13 @@ async function main(): Promise<void> {
     "/_astro/*",
     "  Cache-Control: public, max-age=31536000, immutable",
     "",
+    // The print pages only exist to be turned into the PDF files.
+    "/cv/",
+    "  X-Robots-Tag: noindex",
+    "",
+    "/en/cv/",
+    "  X-Robots-Tag: noindex",
+    "",
   ].join("\n");
 
   await writeFile(join(distDir, "_headers"), headers, "utf8");

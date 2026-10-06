@@ -138,8 +138,14 @@ test("breadth-first crawl validates local links and fragments", async ({ page, r
       if (target.origin !== SITE_ORIGIN) {
         continue;
       }
-      // PDF files are built in a later step.
       if (pdfPaths.has(target.pathname)) {
+        // Not an HTML document: check that it is served, do not parse it.
+        if (!visited.has(target.pathname)) {
+          visited.add(target.pathname);
+          const pdf = await request.get(target.pathname);
+          expect(pdf.status(), target.pathname).toBe(200);
+          expect(pdf.headers()["content-type"], target.pathname).toBe("application/pdf");
+        }
         continue;
       }
       const targetPath = target.pathname + target.search;
@@ -158,6 +164,9 @@ test("breadth-first crawl validates local links and fragments", async ({ page, r
 
   for (const entry of PUBLIC_PAGES) {
     expect(visited, `Unreachable page: ${entry.path}`).toContain(entry.path);
+  }
+  for (const path of pdfPaths) {
+    expect(visited, `Unreachable PDF: ${path}`).toContain(path);
   }
 });
 

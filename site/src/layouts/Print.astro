@@ -1,0 +1,34 @@
+---
+import type { Locale } from "../lib/i18n.ts";
+import { translator } from "../lib/i18n.ts";
+import { siteConfig } from "../lib/config.ts";
+import { profilePath } from "../lib/routes.ts";
+import "../styles/print-fonts.css";
+import "../styles/print.css";
+
+interface Props {
+  locale: Locale;
+  name: string;
+}
+
+const { locale, name } = Astro.props;
+const t = translator(locale);
+const canonicalUrl = siteConfig.siteOrigin + profilePath(locale);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t("print.title", { name })}</title>
+    <meta name="description" content={t("print.description", { name })} />
+    <meta name="author" content={name} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main id="main"><slot /></main>
+  </body>
+</html>
