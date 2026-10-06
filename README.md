@@ -1,7 +1,7 @@
 # Vitrin
 
 İşe alım platformu senaryosu üzerinde çalışan, kararlarını ve ölçümlerini kendisi gösteren bir
-sistem. Tasarım dokümanları: [`docs/vitrin/README.md`](docs/vitrin/README.md).
+sistem.
 
 Geliştirme sürüyor; yayınlanmış bir sürüm henüz yok.
 
@@ -25,7 +25,6 @@ Geliştirme sürüyor; yayınlanmış bir sürüm henüz yok.
 | `deploy/measure/` | Sütun 0 ölçüm araçları |
 | `deploy/cloudflare/` | Cloudflare kurulum adımları |
 | `.github/workflows/` | CI ve site yayını iş akışları |
-| `docs/vitrin/` | Tasarım dokümanları ve karar kayıtları |
 
 ## Gerekenler
 
@@ -164,8 +163,7 @@ Açık bastırması `.trivyignore.yaml` içine, açık kimliği ve paket bazınd
 
 ## Yayınlama
 
-Karar kaydı: `docs/vitrin/kararlar/KK-011-ci-ve-yayinlama.md`. Sunucu ve Cloudflare kurulumu:
-`deploy/server/setup.sh`, `deploy/cloudflare/README.md`.
+Sunucu ve Cloudflare kurulumu: `deploy/server/setup.sh`, `deploy/cloudflare/README.md`.
 
 ```
 cp deploy/release.conf.example deploy/release.conf   # bir kez; doldurulur, depoya girmez
@@ -188,5 +186,5 @@ yayınlanan port yoktur.
 
 ## Ölçümler
 
-Araçlar `deploy/measure/` altındadır; karar kuralları ve sonuçlar `docs/vitrin/olcumler/README.md`
-içindedir. Her araç ham çıktıyı `measurements/` altına yazar (depoya girmez).
+Araçlar `deploy/measure/` altındadır; her araç karar kuralını kendi içinde taşır ve ham çıktıyı
+`measurements/` altına yazar (depoya girmez).

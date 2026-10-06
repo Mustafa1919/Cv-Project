@@ -1,7 +1,7 @@
-# Kept out of the repository on purpose (docs/vitrin/07-acik-kararlar.md, A11)
+# Kept out of the repository on purpose: working notes and design documents
 /rakip-analizi.md
 /tartisma-notlari.md
-/docs/_arsiv/
+/docs/
 /CLAUDE.md
 /.claude/
 
@@ -57,5 +57,5 @@ replay_pid*
 # Release configuration of this machine (deploy/release.conf.example is the template)
 /deploy/release.conf
 
-# Raw measurement output; the reports under docs/ cite it
+# Raw measurement output
 /measurements/
