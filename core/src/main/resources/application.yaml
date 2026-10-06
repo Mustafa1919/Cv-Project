@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: core
+  threads:
+    virtual:
+      enabled: true

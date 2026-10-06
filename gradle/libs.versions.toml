@@ -1,0 +1,15 @@
+[versions]
+java = "25"
+# 4.0.x on purpose: Spring Cloud 2025.1.x (gateway) targets Boot 4.0; no Spring Cloud GA for Boot 4.1 yet.
+spring-boot = "4.0.8"
+
+[libraries]
+spring-boot-gradle-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+
+# Versions below come from the Spring Boot BOM.
+spring-boot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc" }
+spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-boot-starter-webmvc-test = { module = "org.springframework.boot:spring-boot-starter-webmvc-test" }
+jspecify = { module = "org.jspecify:jspecify" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }

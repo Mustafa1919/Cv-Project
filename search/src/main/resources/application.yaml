@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: search
+  threads:
+    virtual:
+      enabled: true
