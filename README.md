@@ -66,6 +66,9 @@ Bağımlılıklar:
 docker compose -f deploy/local/compose.yaml up -d
 ```
 
+Makinede kurulu bir PostgreSQL 5432 portunu tutuyorsa başka port verilir
+(`VITRIN_POSTGRES_PORT=15432`; Redis için `VITRIN_REDIS_PORT`).
+
 Servisler (her biri ayrı terminalde). Profil vermek zorunludur; profilsiz servis açılmaz:
 
 ```
