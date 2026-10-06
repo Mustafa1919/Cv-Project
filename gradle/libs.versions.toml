@@ -3,8 +3,24 @@ java = "25"
 # 4.0.x on purpose: Spring Cloud 2025.1.x (gateway) targets Boot 4.0; no Spring Cloud GA for Boot 4.1 yet.
 spring-boot = "4.0.8"
 
+# Static analysis
+errorprone = "2.50.0"
+nullaway = "0.14.2"
+# 1.37.0 fails inside Spotless 8.9.0; raise the two together.
+google-java-format = "1.36.1"
+spotbugs = "4.10.4"
+errorprone-gradle-plugin = "5.1.1"
+spotless-gradle-plugin = "8.9.0"
+spotbugs-gradle-plugin = "6.5.12"
+
 [libraries]
 spring-boot-gradle-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+errorprone-gradle-plugin = { module = "net.ltgt.errorprone:net.ltgt.errorprone.gradle.plugin", version.ref = "errorprone-gradle-plugin" }
+spotless-gradle-plugin = { module = "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin", version.ref = "spotless-gradle-plugin" }
+spotbugs-gradle-plugin = { module = "com.github.spotbugs:com.github.spotbugs.gradle.plugin", version.ref = "spotbugs-gradle-plugin" }
+
+errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone" }
+nullaway = { module = "com.uber.nullaway:nullaway", version.ref = "nullaway" }
 
 # Versions below come from the Spring Boot BOM.
 spring-boot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc" }
