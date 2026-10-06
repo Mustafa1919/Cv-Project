@@ -4,4 +4,5 @@ plugins {
 
 dependencies {
     implementation(project(":platform"))
+    implementation(libs.nimbus.jose.jwt)
 }

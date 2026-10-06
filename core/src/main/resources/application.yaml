@@ -16,6 +16,13 @@ vitrin:
   guard:
     required-files-in-production:
       - vitrin.identity.signing-key-file
+  # Token lifetimes (KK-007). The signing key file has no default: without it dev and test
+  # sign with a key generated at startup, and production does not start.
+  identity:
+    issuer: vitrin-core
+    audience: vitrin-api
+    access-token-ttl: 15m
+    guest-session-ttl: 24h
 
 # No JPA yet; set now so the first entity cannot rely on a session held open by the view.
 spring.jpa.open-in-view: false

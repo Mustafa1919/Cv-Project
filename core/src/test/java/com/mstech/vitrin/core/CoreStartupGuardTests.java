@@ -3,8 +3,8 @@ package com.mstech.vitrin.core;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import com.mstech.vitrin.core.identity.TestKeyFiles;
 import com.mstech.vitrin.platform.startup.StartupGuardException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -36,7 +36,7 @@ class CoreStartupGuardTests {
 
     @Test
     void startsInProductionWhenSigningKeyIsPresent(@TempDir Path dir) throws Exception {
-        Path key = Files.writeString(dir.resolve("key"), "k");
+        Path key = TestKeyFiles.writeSigningKey(dir);
 
         try (ConfigurableApplicationContext context =
                 run("--spring.profiles.active=prod", "--vitrin.identity.signing-key-file=" + key)) {

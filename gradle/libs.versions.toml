@@ -13,6 +13,10 @@ errorprone-gradle-plugin = "5.1.1"
 spotless-gradle-plugin = "8.9.0"
 spotbugs-gradle-plugin = "6.5.12"
 
+# Not managed by the Spring Boot BOM.
+nimbus-jose-jwt = "10.10"
+jqwik = "1.10.1"
+
 [libraries]
 spring-boot-gradle-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
 errorprone-gradle-plugin = { module = "net.ltgt.errorprone:net.ltgt.errorprone.gradle.plugin", version.ref = "errorprone-gradle-plugin" }
@@ -21,6 +25,9 @@ spotbugs-gradle-plugin = { module = "com.github.spotbugs:com.github.spotbugs.gra
 
 errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone" }
 nullaway = { module = "com.uber.nullaway:nullaway", version.ref = "nullaway" }
+
+nimbus-jose-jwt = { module = "com.nimbusds:nimbus-jose-jwt", version.ref = "nimbus-jose-jwt" }
+jqwik = { module = "net.jqwik:jqwik", version.ref = "jqwik" }
 
 # Versions below come from the Spring Boot BOM.
 spring-boot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc" }

@@ -11,6 +11,9 @@ build/
 .kotlin/
 !gradle/wrapper/gradle-wrapper.jar
 
+# jqwik's record of failing samples from the last local run
+.jqwik-database
+
 # IDE
 .idea/
 *.iml
