@@ -29,3 +29,6 @@ spring-boot-starter-webmvc-test = { module = "org.springframework.boot:spring-bo
 jspecify = { module = "org.jspecify:jspecify" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+spring-boot-autoconfigure = { module = "org.springframework.boot:spring-boot-autoconfigure" }
+spring-boot-starter-opentelemetry = { module = "org.springframework.boot:spring-boot-starter-opentelemetry" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }

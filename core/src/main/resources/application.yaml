@@ -1,6 +1,15 @@
 spring:
   application:
     name: core
-  threads:
-    virtual:
-      enabled: true
+  config:
+    import: classpath:platform-defaults.yaml
+
+server:
+  port: 8081
+
+management:
+  server:
+    port: 9081
+
+# No JPA yet; set now so the first entity cannot rely on a session held open by the view.
+spring.jpa.open-in-view: false
