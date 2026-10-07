@@ -82,10 +82,8 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          PAGES_PROJECT: ${{ vars.PAGES_PROJECT }}
         run: |
           set -euo pipefail
-          npx --yes wrangler@4.147.0 pages deploy site-dist \
-            --project-name "$PAGES_PROJECT" \
-            --branch main \
-            --commit-hash "$SHA"
+          npx --yes wrangler@4.147.0 deploy \
+            --config deploy/site/wrangler.jsonc \
+            --message "$SHA"
