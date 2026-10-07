@@ -1,0 +1,62 @@
+items:
+  - id: etb-team-lead
+    organization: ETB Elektronik
+    title:
+      tr: Yazılım Takım Lideri
+      en: Software Team Lead
+    start: "2020-11"
+    location:
+      tr: Ankara
+      en: Ankara
+    description:
+      tr: >-
+        Kimlik Erişim Cihazları (KEC) ve yönetim sistemlerinde teknik liderlik ve mimari tasarım.
+
+
+        - Ekip yönetimi, görev dağılımı, code review ve junior geliştiricilere mentorluk.
+
+        - Cihaz yönetimi (MDM) ve entegrasyonlar için Spring Boot ile RESTful servisler.
+
+        - Android cihaz yazılımı; çok iş parçacıklı yapılar, Java Socket ve WebSocket ile gerçek
+        zamanlı haberleşme; APDU ve AKİS protokol entegrasyonu.
+      en: >-
+        Technical leadership and architectural design for Identity Access Devices (KEC) and their
+        management systems.
+
+
+        - Team management, task distribution, code review and mentoring junior developers.
+
+        - RESTful services with Spring Boot for device management (MDM) and integrations.
+
+        - Android device software; multithreaded structures, real-time communication over Java
+        Socket and WebSocket; APDU and AKİS protocol integration.
+    skills:
+      - java
+      - spring-boot
+  - id: icterra-engineer
+    organization: ICTerra
+    title:
+      tr: Yazılım Mühendisi
+      en: Software Engineer
+    start: "2020-08"
+    end: "2020-11"
+    description:
+      tr: Aselsan Hızlı Tren Projesi için Qt/C++ ile kokpit ve kullanıcı ekranları.
+      en: Cockpit and user screens in Qt/C++ for the Aselsan High Speed Train project.
+  - id: etb-engineer
+    organization: ETB Elektronik
+    title:
+      tr: Yazılım Mühendisi
+      en: Software Engineer
+    start: "2019-04"
+    end: "2020-08"
+    location:
+      tr: Ankara
+      en: Ankara
+    description:
+      tr: >-
+        Linux tabanlı gömülü sistemlerde C++ ve Qt ile geliştirme; KEC cihazının Tübitak ve CC Lab
+        testlerinden geçip TSE sertifikası almasında aktif rol.
+      en: >-
+        C++ and Qt development on Linux-based embedded systems; active role in the KEC device
+        passing the Tübitak and CC Lab tests and obtaining its TSE certificate.

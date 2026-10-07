@@ -1,0 +1,437 @@
+{
+  "version": 1,
+  "units": {
+    "case-studies/ci-clean-cache.yaml#/cost": {
+      "tr": "41512885929f497f7847b9c97134c7fa507d793ea51131d958f062da959b0e51",
+      "en": "b0626eb3f227cef7e15f225c8a532d5005209ec92002abef3a055a49575592be"
+    },
+    "case-studies/ci-clean-cache.yaml#/decision": {
+      "tr": "154ecc0010dd432aa63d6fd6064fb8d6152f5fef359a5e2376da9cc076f7f53c",
+      "en": "1fc54a12d408be1dda352fb86408eb71a4da772b82bd3aa9a407ece255c36476"
+    },
+    "case-studies/ci-clean-cache.yaml#/metrics/components-after/label": {
+      "tr": "16e6659a907150d5c4dc3bbc4a826aa8cf9641b8e91820b571c807929a110f5e",
+      "en": "13394af8230c4fb28fbb48227ca49cd0caf307b2872cbb51f89eadc36b4c4f12"
+    },
+    "case-studies/ci-clean-cache.yaml#/metrics/components-before/label": {
+      "tr": "2ddeb2cff05a1788f5f11ba36960b7066013f4cd1b686f9dfef9aa1d95db806c",
+      "en": "f9ed0c323ae3c1777349a704ac3faf350fcb73d8cd952d19b0fb956dc1936123"
+    },
+    "case-studies/ci-clean-cache.yaml#/problem": {
+      "tr": "9c9516987821d81151aabd0f54da390a617b86cf8b92c7c7d8031e698756fbf2",
+      "en": "a1b7d65a1f3f94f9f380bc8e317db3b407a99bef19f41d06f0f4243d5c7e657b"
+    },
+    "case-studies/ci-clean-cache.yaml#/result": {
+      "tr": "8c98df541ecabb95085773258ac0530b3d069de7d90e4bc264ae42440415182e",
+      "en": "670fb779a6946500e771c47d05eff8320946ead8ae869ac49d571fc9a4913c11"
+    },
+    "case-studies/ci-clean-cache.yaml#/title": {
+      "tr": "e9eace5607f5779a211cdb628b36bcc24dc97d7384ebc3af18e532992a363aa8",
+      "en": "331e84afc87edfe00288be42425d35e1b8c022ae9fcac57e1088ee3ed0cfa22c"
+    },
+    "certificates.yaml#/items/data-science-python/name": {
+      "tr": "7fd3d5a6cf88dc354fe0b1f4c278e83b62598cdd79757184e5aa97641606f7dd",
+      "en": "5b5f9fe58455f87b8ceb6c5871d6869f9a54cdcae21ffbdc657b08b8ba7f55f1"
+    },
+    "certificates.yaml#/items/java-android-expertise/name": {
+      "tr": "ed5e5bc8c61bebb440fbd578cfa15d602b7476e6a68b4799df16d8dc9d69a97e",
+      "en": "30b0e9f5621ffcca086292087fd31dbff4ccc7bb11fcf3407c5d2ec5d6b26033"
+    },
+    "certificates.yaml#/items/professional-java/name": {
+      "tr": "846e16c48fdc7da243f2d31efb595ef78d4724e83c02ced919e4e7de587e39b9",
+      "en": "12026940719ba1c15d662a881aac32cd72472f5bd826462a74304d449d5df542"
+    },
+    "education.yaml#/items/karabuk-computer-engineering/degree": {
+      "tr": "b5288f2b2c50972fcda196431cf082100686743d7df51ee69b08d4bfba92f4a7",
+      "en": "fe0a18b0715d1836a0f5151c0ddbfb6e006bcf5f2b9d2235724e436672f62ed2"
+    },
+    "education.yaml#/items/karabuk-computer-engineering/institution": {
+      "tr": "73e75b394f1389ccf46e5af93eef04abc792b755af53c69a27b6d35f549d8598",
+      "en": "401cfc4d074b053f2a140ef69c66da95e087396c376ab53f3a584ea4641c7f1c"
+    },
+    "evidence.yaml#/items/ev-cert-java/title": {
+      "tr": "c7348acc1ce95beb9d9ff4fa93c3b35d29a8adee070fe0a1000cb460f1f44b2d",
+      "en": "4ff43c5cf4c9de3d0e13bc07a7670dca7ccacabf85d54f9eb2a17d82dc6ff17e"
+    },
+    "evidence.yaml#/items/ev-ci-case/title": {
+      "tr": "417d047eb02b80f25cec8c5b7cc55f9bbd3b12ee6b97b5229cc3e6323ea0d90f",
+      "en": "53705d5944304e98130d6f31d91e12d49748e8cd4373f528029041b82c21ba3c"
+    },
+    "evidence.yaml#/items/ev-kk-011/title": {
+      "tr": "5635e67ca662fd759c625abfec7f3dce2e00bcd28f9698687263fc0904ed2257",
+      "en": "f72f0bf680053b4dd3c295447512990b5ca8033a8c8dbcc01854435be900250a"
+    },
+    "evidence.yaml#/items/ev-m-ci-cache/title": {
+      "tr": "32cc54bcbcd774ca6b866a0b5b7825deefd142649f1a549d71c2a04071d609d6",
+      "en": "05ef7bb660109ba1a1cd0e37c8a7b92d7820ec29dcf0df30fe0a39396dd5de59"
+    },
+    "evidence.yaml#/items/ev-vetapp-repo/title": {
+      "tr": "afddac6951f513c3ed93e5ac6e38a0e37076be2f9929eb10a458d68a6682ff87",
+      "en": "9ffdacdc1923d111f80b4b5c47c1473c36c57292eaf5ae41c88e5b3896a13d5a"
+    },
+    "evidence.yaml#/items/ev-vetapp/title": {
+      "tr": "921b194219bb5d1b7ad7e7555b7696ea09e36ab01d03c490f1a14d522b656fb4",
+      "en": "b59813a5b8cbf43257fb19342c7fc7697edd9ed03038376bd65b3adae23718df"
+    },
+    "evidence.yaml#/items/ev-vitrin-repo/title": {
+      "tr": "c8775054848f9efcb2556c4fba3d10a64d2bb1c35d7a374c81f455e6f1039544",
+      "en": "417885b1ebac175a8dcc6e8ede72e35d67991688176be49dc80f8c112d58c6cf"
+    },
+    "evidence.yaml#/items/ev-vitrin/title": {
+      "tr": "475839313f48f5f10640662643503b020eed52bdf97663999ef483c601d337dd",
+      "en": "24bec20dd69146b5f08868ae3b1a04446ace25b8ce34fa7f06011d07bb45caa8"
+    },
+    "evidence.yaml#/items/ev-workfollowup-repo/title": {
+      "tr": "c33cfa9374254c35a93ee26638e43781ac864e3df90e357e4e62314ffe00cd01",
+      "en": "a77bc3ab7582a398bcacd540a2bc6521905b41ef936ad70b0bb18adf8ca0c59e"
+    },
+    "evidence.yaml#/items/ev-workfollowup/title": {
+      "tr": "199097464122afec781ddd9ca1d216ab3fb0a9070b9b8e4778cacc935434e8dc",
+      "en": "70d44b418aae328c94d64d42bbb48d089628e42ba6e53b0f776ce3b05aaaa096"
+    },
+    "experience.yaml#/items/etb-engineer/description": {
+      "tr": "ac40584f352f139d7bce94283386e01237c465a8d600d5b12d77847b5a854a21",
+      "en": "a8c93f0db4b2b887059befb1d14fbdc863607882af1d0a4908078dafdd60e261"
+    },
+    "experience.yaml#/items/etb-engineer/location": {
+      "tr": "3842353b0bd4a4954e94fa1be3bc26ee035652afd6bc3beb2632cfe8de034810",
+      "en": "3842353b0bd4a4954e94fa1be3bc26ee035652afd6bc3beb2632cfe8de034810"
+    },
+    "experience.yaml#/items/etb-engineer/title": {
+      "tr": "6ccaae55dfc43346a9405c4536057290d84aed0c0d9dffa14fb8139fc8e241d1",
+      "en": "6a50d1018d769001681298f26dd590b9bf561e537cd4fb015288f24bc246b4b4"
+    },
+    "experience.yaml#/items/etb-team-lead/description": {
+      "tr": "600ca26561cc6bb060db247f38462f494c7d20b3657409af4d6a644f320a1669",
+      "en": "c4949214ee0761167057891ba38748256c2c34427922269d9b1dfc8dcff11bf0"
+    },
+    "experience.yaml#/items/etb-team-lead/location": {
+      "tr": "3842353b0bd4a4954e94fa1be3bc26ee035652afd6bc3beb2632cfe8de034810",
+      "en": "3842353b0bd4a4954e94fa1be3bc26ee035652afd6bc3beb2632cfe8de034810"
+    },
+    "experience.yaml#/items/etb-team-lead/title": {
+      "tr": "f54a9ea1a0123e25b2936a52e3beea3f7be23aea33e3403dd05933c9de597381",
+      "en": "1b4e673472764b64ea059f2f4daad9bb28b8e9a11deb9809da5b38f25d9c6b3e"
+    },
+    "experience.yaml#/items/icterra-engineer/description": {
+      "tr": "be633247c19bc4f36e1488868380d3c64e60690ec27421810ed2b2dbe5fb1806",
+      "en": "ec9174fbe13dc500d2972483e0f2ed888ee840e78a6d1e096e7a5dbc89ac4e0b"
+    },
+    "experience.yaml#/items/icterra-engineer/title": {
+      "tr": "6ccaae55dfc43346a9405c4536057290d84aed0c0d9dffa14fb8139fc8e241d1",
+      "en": "6a50d1018d769001681298f26dd590b9bf561e537cd4fb015288f24bc246b4b4"
+    },
+    "profile.yaml#/highlights/0/text": {
+      "tr": "c5856c489b0932c5f463249a299ed13775e4619666de10d884b1d208b736c522",
+      "en": "44e9021696f9c37fbb3aa2c9a628c4254974c1878b3162d06ed848e84df3deb7"
+    },
+    "profile.yaml#/highlights/1/text": {
+      "tr": "40b5000ad13eea0e0ce3921405126ebe489a86bf51b608a43c6f979953f0e147",
+      "en": "785e08f079d5c4877c1496edf2f9f5efa214d9a2b3ba5dc23a1f0a52e2e5a07e"
+    },
+    "profile.yaml#/highlights/2/text": {
+      "tr": "8fcec5a7c89603e4f76c0f123ac38e046d41a3585689944253446f6cf29bb109",
+      "en": "84747c00117b3be668999db086f5028a39648caaf4215dc2389db8490f760b88"
+    },
+    "profile.yaml#/links/github/label": {
+      "tr": "f911e414cf6bdfc595532ab166b5ba0f63d73c021452fcdacbda363dda6ad8fb",
+      "en": "f911e414cf6bdfc595532ab166b5ba0f63d73c021452fcdacbda363dda6ad8fb"
+    },
+    "profile.yaml#/links/kaggle/label": {
+      "tr": "9b773eceddf8b7622fdec8bb3c8657ff5b71dc0cb7abcd0d883209ea49e7f2b7",
+      "en": "9b773eceddf8b7622fdec8bb3c8657ff5b71dc0cb7abcd0d883209ea49e7f2b7"
+    },
+    "profile.yaml#/links/linkedin/label": {
+      "tr": "dd84425b72da12c6c828339ce814342daceac705b50d42e377e1acebf8f2320b",
+      "en": "dd84425b72da12c6c828339ce814342daceac705b50d42e377e1acebf8f2320b"
+    },
+    "profile.yaml#/location": {
+      "tr": "8e132efda34cf4a3cc44450747c7cc545af0bef82317a7884ad963be631cc7bc",
+      "en": "8e132efda34cf4a3cc44450747c7cc545af0bef82317a7884ad963be631cc7bc"
+    },
+    "profile.yaml#/summary": {
+      "tr": "ad3f98937d3de5383ea2d844e6fd220bcad69dbf0afe7f19740c07c6436f1d0d",
+      "en": "ed0a923ced97230b5447c20091fb7e2e6c2f6b87bdb14e3e2447a9c525bfd013"
+    },
+    "profile.yaml#/targetRole": {
+      "tr": "ee81bb6e690434f73559e32b67666f62a48d39abf6e55f74ab1109450faf0601",
+      "en": "94c246c6b938ea969751e83aec9f6cb34ba7db47746d0315415e01241a6ef3c0"
+    },
+    "profile.yaml#/workPreference": {
+      "tr": "4348de48456ee62f99956fc1c5a4fa707ac533d8cdcae6213c2b8a6d4cfaef4e",
+      "en": "e2ca6b3db6dc3fdd383c2b33744f007c0a830dcb2e19c72886c6e311f977ca1b"
+    },
+    "projects.yaml#/items/cv-vitrin/summary": {
+      "tr": "9eb2877b297e00357c63feead3427f5404b89e5d73745c6c20309822d9a5c75a",
+      "en": "f51333a78fc0fd99bbf95bb2f09ff61660d7f826c4cc0b7542138e61776cd921"
+    },
+    "projects.yaml#/items/vetapp/summary": {
+      "tr": "bf6658ac8d33d6d815c206853590e73e20afb8a4703792c30a26b79ae0694d59",
+      "en": "7f3bc4e02ecd0365998248c36c550cf1cfd7a900d32f78b933daae27621ab57c"
+    },
+    "projects.yaml#/items/workfollowup/summary": {
+      "tr": "025644b53fe611c169457e1577e239f34739c2d9c994214b69f629f33e5ea63c",
+      "en": "9bc6983701447e8e3e7a3cb6fae792443482f76e7c52225336d3887bb49c6759"
+    },
+    "ui#/actions.pdf": {
+      "tr": "9875f90a9c259c09a62ebdbfd637ef9aa52c597750d111199284b620a28549de",
+      "en": "13be2cf25f9edcbed005a18267b1ef133438ecbf452b38494247ee3323b96a97"
+    },
+    "ui#/caseStudy.backToProjects": {
+      "tr": "6cbfb25900620fbe3d0585123da330be215adfc9676ede87e5fb9d8b0db9bc26",
+      "en": "d9088c8aee0118cbc5f36d530001d9c73b9ac7187e02edebb05f322b61ec0ca0"
+    },
+    "ui#/caseStudy.cost": {
+      "tr": "bb3d1fd25867bbf2bd9141af8359cb508c3a038d0760ea9f5407633a0390f18e",
+      "en": "204a5eb2cd28bcfdf3be9f8c765948e9e831609e3c57048cdbd6b8a94cf49126"
+    },
+    "ui#/caseStudy.decision": {
+      "tr": "779c7177e97ab89ba5c7fe272116ca1a4a18b592a204762e6c135edb5b513ada",
+      "en": "640ae4baf96061fee1798e9181e2b7a5145585233df2c27a501623afb0096ec1"
+    },
+    "ui#/caseStudy.measurementReport": {
+      "tr": "c2b5484610c85e54722b5880f6f36ca70350942b879fb61b1c9402a1fc2dce57",
+      "en": "7a2822e845e60c08103ac8a018fdca89e1732733e1f835baccf9fb5dcd6d8407"
+    },
+    "ui#/caseStudy.metrics": {
+      "tr": "72d79c4e6dd719a72c167ea1262e404ab8b02b0a077e8f12f415fbe10777ac77",
+      "en": "a58da793c7250f1b3b8f8710efd7c7ee7e1a2dac4208f355dad42458a421e4ec"
+    },
+    "ui#/caseStudy.noCaseStudy": {
+      "tr": "4f28b5454b8b11e726a6a35fa6c2184dac900cb0d61104f5d5fff6ec0658ee9c",
+      "en": "9c02290d77b1c4283106160a4abab1daa7cb406293dd275e6d409697e1bed07a"
+    },
+    "ui#/caseStudy.problem": {
+      "tr": "9e9121ff9388abf2f373ecddd2f3634ca9d5e4f1172bda1759fc4582f4579b1b",
+      "en": "a1c5ae7bcb34bbf48104488eff8deede31b059aceceab562a6aace384f7fd64f"
+    },
+    "ui#/caseStudy.repository": {
+      "tr": "3f6a1e9e1ea22d5cfafb1b3698fb80dde5249a46de71b3ef1a25006ba2287b32",
+      "en": "13d6ff07b8a5d792ec87d5ec83bff2730ee77fa8f4fcd89ca5f1d688f64b4c73"
+    },
+    "ui#/caseStudy.result": {
+      "tr": "f41f3521f17b9a2a3ffd9ae1140133f543641097ed992a37b8dc1237d31692ad",
+      "en": "bf9bbc90164b531c62a02067330b697f741214c51e96e06c86ab0e75dab41985"
+    },
+    "ui#/caseStudy.source": {
+      "tr": "2f0db590c3dcd1da8f12ee13d66578fab5dd2e84e4fd983e0deb3d2ad53ce2dd",
+      "en": "0e570ca6fabe24f94e52c1833f3ffd25567022beb826fa16891f3322051bc221"
+    },
+    "ui#/certificates.inProgress": {
+      "tr": "44516b75a41fc71b03583c07d50bfa188009b032050d4b81e2708e8c4d6fa8d9",
+      "en": "c1f88e9d6c4145cf0530ae020155384d5688d70ed82a07a35d783bbc4b32238c"
+    },
+    "ui#/dates.present": {
+      "tr": "5b09d3fe743098b8a621ceae4098c0fc52bd712e526c474fb02a28a375654c65",
+      "en": "4d4c7eee2e28d03cb2dbf3df639c3290ade66e18755e83caade2d8f37bd8c044"
+    },
+    "ui#/evidence.caseStudy": {
+      "tr": "066efe193d537dcbd266ede392d180e364ae55595f80e82de32929306a6d3fb5",
+      "en": "2dcee86dc899fce037dc0f6be6269d86229ce3f78f21c1ed61a86cb7b3d11d55"
+    },
+    "ui#/evidence.certificate": {
+      "tr": "21536602d9dbe04a894ab53c526c1bc6e2b4b530221ea75ea4de331d00103d41",
+      "en": "2a93a8a442e305e84da02d6620f77f97ec9ebbca18abef6f64daf110c3992937"
+    },
+    "ui#/evidence.decisionRecord": {
+      "tr": "d4ef85f0043e36276d007d11c602ccf60b920221588580fe2bbea4bbd0c673e0",
+      "en": "c33f22e665877c365072b469a4cdb86dcb5f47405f0fda91068109fa3effe081"
+    },
+    "ui#/evidence.measurementReport": {
+      "tr": "c2b5484610c85e54722b5880f6f36ca70350942b879fb61b1c9402a1fc2dce57",
+      "en": "7a2822e845e60c08103ac8a018fdca89e1732733e1f835baccf9fb5dcd6d8407"
+    },
+    "ui#/evidence.project": {
+      "tr": "7b321d627cb15a817c9e3d34986f996e7271a90f0b263b3917209dc018adf917",
+      "en": "985959785319747668373cc6dee294b11db782b03cdd90a2851fbdc0637c6b7b"
+    },
+    "ui#/evidence.repository": {
+      "tr": "3f6a1e9e1ea22d5cfafb1b3698fb80dde5249a46de71b3ef1a25006ba2287b32",
+      "en": "13d6ff07b8a5d792ec87d5ec83bff2730ee77fa8f4fcd89ca5f1d688f64b4c73"
+    },
+    "ui#/footer.staticNotice": {
+      "tr": "424ed084e4d230c8aefb0d635778a1285b03324b5efdc0134386ee539506604d",
+      "en": "3f69c5691cdaf8905859ee9ceaf2f64fe1c5be1de6568c7ac13c81ffff165576"
+    },
+    "ui#/language.en": {
+      "tr": "861dd128f74f33e757100af7110090ad31845ac91b0f541c2ad4002a0e9de2aa",
+      "en": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06"
+    },
+    "ui#/language.switchLabel": {
+      "tr": "884951f6b072a017882370599a338898294ab4c4ae6d76543b85273736b27206",
+      "en": "9bb57d2c5acff2fe27c722c0e9c1849f8acf4e1c2ef79f4c21f30da0632dfff1"
+    },
+    "ui#/language.tr": {
+      "tr": "0f8b5cb2e84b210d34a4af531296431bc595bb2321d77179deb42718de75bfae",
+      "en": "6e7aac65db0112465ee368ee3ee8799025a8a52a722bab2ce9c615a9ca1e7938"
+    },
+    "ui#/nav.mainLabel": {
+      "tr": "338a27d7a65ab2d0842fede3cc7d87bfffe708b1101ec59940c4d53dbfdcfbf3",
+      "en": "eb355944b92d10582856f8aea34b3e319ba465b8aa4c294973cf53f665399a2c"
+    },
+    "ui#/nav.privacy": {
+      "tr": "b867e8544d0e6022cc4579560fd199fc98512ffdecc52f6ebfeb3adfabdac24d",
+      "en": "54a57c3147c49f33de5898b87084ad2b14c4ab308f762454bf92aca907478ad5"
+    },
+    "ui#/nav.profile": {
+      "tr": "e267d343821f264e61be7d66ef27acd640e0cdb4ef2df9b54ad6ebff0f3ab35f",
+      "en": "d696a35bdd1883da07a8d6c41bb7a3153381b23aa197629ee273479a6eaa5a9c"
+    },
+    "ui#/nav.projects": {
+      "tr": "30bcb5bccd3e2e26fc5648fc06db605d752f23672ef83007894be2fe567f5457",
+      "en": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada"
+    },
+    "ui#/nav.skipLink": {
+      "tr": "758f78553047a3ee5535074952548040366f358f64ee61d1f699dcea17e9dbac",
+      "en": "c887f134c26ea8310e1fb4bd6fbab7b640393bd1b556e62691c7a442be92ec2a"
+    },
+    "ui#/notFound.back": {
+      "tr": "423d398505e9c5ac31c4a52e2b69c2664cdd68566e6b1cfe851f5705a75d7cd8",
+      "en": "d5647f365983c13277caa882dea35ad0383475d229dbec5ee955c12edf6d2282"
+    },
+    "ui#/notFound.text": {
+      "tr": "92b20be6ea44bec643bf49f75e233d73183810fdc716e137c2f9d0f5223f1086",
+      "en": "379bc4a54d94051893e222574ce64ffebec647723daa12f8fa99e2f52b1780d7"
+    },
+    "ui#/notFound.title": {
+      "tr": "54862c4b8a11fca611f9d9343005283a37afbbc2d9b407711ae16e9edfb7e600",
+      "en": "a469ab4ca4e55bf547566e9ebfa1b809c933207e9d558156bc0c4252b17533fe"
+    },
+    "ui#/print.description": {
+      "tr": "244842402ab3e15ad42ed06bf9b31d8b0a7d9e0fcb2b383aac50e7a69cf2bba6",
+      "en": "af7bcb2e82988d57bd9fcd7420c8902fd135a950fe611479905ea06667810bd9"
+    },
+    "ui#/print.site": {
+      "tr": "fa7955814e32aed3a240ee46fcd053dd48f320d4e6e18d2b2774e491c5f75834",
+      "en": "b5a229ac8becc6035511f432ca6018f581f0627233eada6ae8e12b505d44af7f"
+    },
+    "ui#/print.title": {
+      "tr": "827a9bb66a4b095b9ee8f035690b202661055b197bab216a09ed5883f249497f",
+      "en": "6f1162118aff3ccdc361bb146014ca79dca5d79a1eb7c8aa6603438a5c59a51d"
+    },
+    "ui#/print.years": {
+      "tr": "2a04a624e46cef188afc6068f4fe6ee6d487cfbaa9e1e07ac28e7444f9b3b994",
+      "en": "00703407fd6925dfec24f2fbd19ca80d48ecc1362d02e82c8a5c18a68e4a0abc"
+    },
+    "ui#/privacy.liveCookies": {
+      "tr": "c08ce21f137cf6f63e54e3952c82a256a348ff0e1bd7a98121b8dddd0beb2770",
+      "en": "1157ada74a80307bd6cc72a2a2f2eb0426572894c1c8270b3819b9b7d6a0c7b5"
+    },
+    "ui#/privacy.localAssets": {
+      "tr": "3f4567d3dae2655c72dadd29d739a2be230187a0ed71dfd794470db82bfcba1b",
+      "en": "a018e6d88a9774da593dac23901c0c7fd1c5c55c4e6672889edfd6c5c030aae4"
+    },
+    "ui#/privacy.noCookies": {
+      "tr": "fc5cd59d39a2bf096aa4c39430cdf81e6580de86987056d277495a789f192c48",
+      "en": "14f857c75cac7a4ad4deb1e96db16257067e0a5f704a3c86f3253aa4a63b9b72"
+    },
+    "ui#/privacy.rateLimiting": {
+      "tr": "f5a3fc112d266c2b21acb715e564aa86b9fa238368db14be02839b912724a3ae",
+      "en": "729eca5274f634f47a3cd70cafc4541eb09994739e48aae2999e510ef5cd41a0"
+    },
+    "ui#/privacy.statusRequest": {
+      "tr": "0c6200fdfc42b3f5565936567ac3c358497b2270620d89276d84fb76f3c3ebcb",
+      "en": "9e7e414102a87a50704e8aaac064044562bf84606e78629b8f81181dd589970c"
+    },
+    "ui#/privacy.title": {
+      "tr": "b867e8544d0e6022cc4579560fd199fc98512ffdecc52f6ebfeb3adfabdac24d",
+      "en": "54a57c3147c49f33de5898b87084ad2b14c4ab308f762454bf92aca907478ad5"
+    },
+    "ui#/profile.certificates": {
+      "tr": "d6921be466c09dfb56b0223e3d65b527f8065f513b2e802f6deb1dbdc2b0f721",
+      "en": "16f637921eba69b04b80b33acfce138c0f48121ce6b33eda1a10aaf7c5216b23"
+    },
+    "ui#/profile.education": {
+      "tr": "2aa71916f93cb8e4694a6336cce2a1b9b71fc3aec5d475b283c2ab625dbae07e",
+      "en": "512ab3c6b9869577bd4474c56b88f9e3f1c40c54d18e8e5a2329821254d362d2"
+    },
+    "ui#/profile.experience": {
+      "tr": "a36362d47352f7b3f7d1bec2a8d5bb664fc67ea3b341a85ffee0d795bb72a88b",
+      "en": "8eab0f09df013b1bd69655991bb824cfa822d383b482905789153d4df8bfda78"
+    },
+    "ui#/profile.projects": {
+      "tr": "30bcb5bccd3e2e26fc5648fc06db605d752f23672ef83007894be2fe567f5457",
+      "en": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada"
+    },
+    "ui#/profile.skills": {
+      "tr": "277b511cb91e045f011cb868af09edeb8d09b7b9b21e2b6b25050d073503782f",
+      "en": "66d0f523a379b2de6f8d5fba3a817ebc395f7bcaa54cc132ca9dfa665d1e9378"
+    },
+    "ui#/profile.skillsNote": {
+      "tr": "4c8ffabb55df8b9c264d3103d4ee3f74903153c1f7d84e47c9e26e9f38b758f1",
+      "en": "95a50d91e67ef40d92b8003c94dfee4150d993816dcb5ba8af5b226338789ae3"
+    },
+    "ui#/profile.strongestEvidence": {
+      "tr": "d95f0e1cd0486edd6f31c1e26256d86661d5daeafd2c86774948b3485d7252f4",
+      "en": "a9bd42556060dea3f181fc537fe18cdb3f05d6a467f447cabf526cab8c10171b"
+    },
+    "ui#/projects.heading": {
+      "tr": "30bcb5bccd3e2e26fc5648fc06db605d752f23672ef83007894be2fe567f5457",
+      "en": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada"
+    },
+    "ui#/projects.intro": {
+      "tr": "1c1cb7c5e5e83291ca78e299d433fc0bfc4fd705c8d6a9d5a331a479102b190d",
+      "en": "5ef770cd1afd96b9b6b9e55c1d9e78021c3f44bb44536ea6cccbd23550fa3d69"
+    },
+    "ui#/site.descriptionNotFound": {
+      "tr": "544215fb623abd49487405afd0d1dfc46aeb01710e9f0c80dad258b207a197b6",
+      "en": "916ac732259ceb44f259ace08c7ae2be3aae87335504a9d7d62c371ef6c2ab38"
+    },
+    "ui#/site.descriptionPrivacy": {
+      "tr": "c87b0edca0219c556e1ad5e6783be0d6610e07696c30281f8848cd526beb3cde",
+      "en": "c3057abeb22ae7f230eafabefa1a8ca3de4e5be0075454cb56f5bb7f969ddf68"
+    },
+    "ui#/site.descriptionProfile": {
+      "tr": "8ddec3fa8f81b704f172d06f6796ad013f4f153cc074cb4081e5d0e8a451d4af",
+      "en": "94f9d1e01da989cb24ce24a67ef51033cff0913daea12ee077eefef6c4092d44"
+    },
+    "ui#/site.descriptionProject": {
+      "tr": "840fc43f82704e966c721084332b3420fdf9c9a94c25c85e626d6a628c94ab28",
+      "en": "ce05581c90e69a16af0dc2be65de85e0f9a7c4cc49a83bc6057541f4323b5402"
+    },
+    "ui#/site.descriptionProjects": {
+      "tr": "b18c880b1be5efdee9da0666055e7670d1191ac3377873c25d0ebe7661968a06",
+      "en": "1fc9330908614552a7aacff72ff2b048c7c45494ff0746be66d6fb072a777ed8"
+    },
+    "ui#/site.title": {
+      "tr": "58d0ca2d19ccb0b56d9fc056159775e54821e0c7fd0c6b1f825d0c5d2c4f7230",
+      "en": "58d0ca2d19ccb0b56d9fc056159775e54821e0c7fd0c6b1f825d0c5d2c4f7230"
+    },
+    "ui#/status.down": {
+      "tr": "1f26da3c3a1d9ce3c9d41bd8c246b4b0ea8db767ab9564f0bcaada83cb0297d3",
+      "en": "491b1282374302bc30a4d3d8cce8cf8e8079e5a542f7fe7c489d0260737970cd"
+    },
+    "ui#/status.neutral": {
+      "tr": "2652b68892a3d1170ca8b6d17b3dec04b9a855f3bf5b9bb9575c358bb1a8893f",
+      "en": "810535adcc1f34dde90200864bb05bf475687872496a150a5c8f3fa0ae00eec2"
+    },
+    "ui#/status.up": {
+      "tr": "f6d83ad19b42545e5c5b858b46bdd79fedcbc062245fc8694442755b4de40457",
+      "en": "656eb7f9eb6a4eacec168e78baee9f8b0156820e29b4dc48bf4e6a5f5a899dbe"
+    },
+    "ui#/table.evidence": {
+      "tr": "255f208b3759c60bb0c6315fc1e979287e3d485d553f967e176ff28ae9d303b9",
+      "en": "03867aea70acaf4c5dce37a76cf5a04dab1716d6ff70bf03761c439daa8be984"
+    },
+    "ui#/table.skill": {
+      "tr": "e725777f077d64e69c1ef081469643a1778ccf829d26062dda79207e91b5ef3d",
+      "en": "6df1bb18a59ab97df82e307b93fe4f3bbda34d531bcbb79ec573dda23ba64918"
+    },
+    "ui#/table.years": {
+      "tr": "7a3d5c66c5127690508fdd404d9fbf551f9d646db953426b29c696167c6af7fe",
+      "en": "b68ca0811f132f73edc68e9d3bebb288ef036c1fef8aabe6d2c63a2b6bfa859c"
+    },
+    "ui#/theme.dark": {
+      "tr": "a9a9097f6063452d5dc17beddbf8dbd585fdbd16c8ffafcf8f8c2329ed88cae6",
+      "en": "3f11a5cc643ab5140966ef077d289165283d33669a68f0bed1efce3a9881384e"
+    },
+    "ui#/theme.light": {
+      "tr": "84b4de74671140ae640beea23d8c8ce0d87171a4cad3eb0f55ee5f79a45853c9",
+      "en": "3669a1b2770f0f397ce00265548b43387d4208de81249ee595b4dd45bb0659f5"
+    },
+    "ui#/theme.toggle": {
+      "tr": "220f80d848c2538c6508af986294d4b3cc34fc00e7f8c46a88e6491ae4598e90",
+      "en": "110ac417d7e018de4f266d2a5b8a719703748536a9c4297cc5c7227d46ace3ad"
+    }
+  }
+}

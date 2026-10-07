@@ -1,0 +1,64 @@
+id: ci-clean-cache
+project: cv-vitrin
+title:
+  tr: "Yerelde yeşil, CI'da kırmızı: bağımlılık doğrulama dosyası"
+  en: "Green locally, red in CI: the dependency verification file"
+problem:
+  tr: >-
+    Derleme yerel makinede yeşildi. İlk CI koşusu ise hiçbir test çalışmadan "Dependency
+    verification failed" ile durdu. Bağımlılık doğrulama dosyası, bağımlılıkları zaten
+    önbelleğinde tutan bir makinede üretilmişti; üst POM ve BOM dosyalarının sağlama toplamları
+    dosyaya hiç girmemişti. Sorun yalnızca boş önbellekli bir makinede görünüyordu.
+  en: >-
+    The build was green on the local machine. The first CI run stopped with "Dependency
+    verification failed" before any test ran. The dependency verification file had been
+    generated on a machine that already held the dependencies in its cache, so the checksums of
+    parent POM and BOM files never made it into the file. The problem only showed on a machine
+    with an empty cache.
+decision:
+  tr: >-
+    CI'ın günlüklerine bakarak tahmin yürütmek yerine hatayı **temiz önbellekli bir Linux
+    kapsayıcısında** yeniden ürettim, doğrulama dosyasını orada yeniden oluşturdum ve aynı
+    kapsayıcıda tam derlemeyi geçirdikten sonra gönderdim. Kural: CI'da bozulabilecek bir
+    şeyin kanıtı, CI'ı taklit eden temiz bir ortamda üretilir.
+  en: >-
+    Instead of guessing from the CI logs, I **reproduced the failure in a clean-cache Linux
+    container**, regenerated the verification file there and only pushed after the full build
+    passed in the same container. The rule: evidence for something that can break in CI is
+    produced in a clean environment that imitates CI.
+cost:
+  tr: >-
+    Yerel CI betiği hâlâ Windows'ta ve dolu önbellekle koşuyor; CI'ın birebir kopyası değil.
+    Aynı sınıftan bir hatayı yerelde yakalamak için bu betiğin de temiz kapsayıcıya taşınması
+    gerekiyor ve bu iş henüz yapılmadı. İlk koşuda kırılan bir CI de kaybedilmiş zaman demekti.
+  en: >-
+    The local CI script still runs on Windows with a warm cache, so it is not an exact copy of
+    CI. Catching the same class of failure locally means moving that script into a clean
+    container too, and that work is not done yet. A CI run that broke on first use also meant
+    lost time.
+result:
+  tr: >-
+    Doğrulama dosyası temiz önbellekte yeniden üretildi ve eksik bileşenler eklendi. Bir sonraki
+    CI koşusunda tüm işler yeşil geçti. Yayın ve sunucu tarafı bu çalışmanın kapsamında değildir
+    ve henüz yapılmamıştır.
+  en: >-
+    The verification file was regenerated on a clean cache and the missing components were
+    added. On the next CI run every job passed. Release and server work are outside the scope of
+    this case and are not done yet.
+metrics:
+  - id: components-before
+    label:
+      tr: Doğrulama dosyasındaki bileşen sayısı (dolu önbellekte üretilmiş hâli)
+      en: Components in the verification file (generated on a warm cache)
+    value: 503
+    unit: adet
+    source:
+      report: o-ci-clean-cache
+  - id: components-after
+    label:
+      tr: Doğrulama dosyasındaki bileşen sayısı (temiz önbellekte yeniden üretilmiş hâli)
+      en: Components in the verification file (regenerated on a clean cache)
+    value: 523
+    unit: adet
+    source:
+      report: o-ci-clean-cache

@@ -1,0 +1,17 @@
+items:
+  - id: java-android-expertise
+    name:
+      tr: Java ve Android Yazılım Uzmanlığı
+      en: Java and Android Software Expertise
+    issuer: Vektörel Bilişim
+  - id: data-science-python
+    name:
+      tr: Data Science ve Python
+      en: Data Science and Python
+    issuer: Udemy
+  - id: professional-java
+    name:
+      tr: Profesyonel Java Geliştirme
+      en: Professional Java Development
+    issuer: Mimar Aslan
+    inProgress: true

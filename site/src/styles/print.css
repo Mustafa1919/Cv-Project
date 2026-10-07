@@ -1,6 +1,6 @@
 @page {
   size: A4;
-  margin: 14mm 16mm;
+  margin: 11mm 15mm;
 }
 
 * {
@@ -11,7 +11,7 @@ html {
   color: #1c1b19;
   background: #fff;
   font-family: "Source Serif 4", serif;
-  font-size: 9.5pt;
+  font-size: 9pt;
   line-height: 1.4;
   font-synthesis: none;
 }
@@ -184,7 +184,7 @@ li,
   padding: 0;
   border: 0;
   color: #1c1b19;
-  font-size: 9.5pt;
+  font-size: 9pt;
   font-weight: 600;
   line-height: 1.4;
   break-after: avoid;

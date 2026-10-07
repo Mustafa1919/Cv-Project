@@ -1,0 +1,61 @@
+items:
+  - id: ev-workfollowup
+    type: project
+    title:
+      tr: WorkFollowUp projesi
+      en: WorkFollowUp project
+    ref: workfollowup
+  - id: ev-workfollowup-repo
+    type: repository
+    title:
+      tr: WorkFollowUp kaynak deposu
+      en: WorkFollowUp source repository
+    url: https://github.com/Mustafa1919/WorkFollowUp
+  - id: ev-vitrin
+    type: project
+    title:
+      tr: Cv-Project vitrin sistemi
+      en: Cv-Project showcase system
+    ref: cv-vitrin
+  - id: ev-vitrin-repo
+    type: repository
+    title:
+      tr: Cv-Project kaynak deposu
+      en: Cv-Project source repository
+    url: https://github.com/Mustafa1919/Cv-Project
+  - id: ev-vetapp
+    type: project
+    title:
+      tr: VetApp projesi
+      en: VetApp project
+    ref: vetapp
+  - id: ev-vetapp-repo
+    type: repository
+    title:
+      tr: VetApp kaynak deposu
+      en: VetApp source repository
+    url: https://github.com/Mustafa1919/vetapp
+  - id: ev-ci-case
+    type: case-study
+    title:
+      tr: Yerelde yeşil, CI'da kırmızı vaka anlatımı
+      en: Green locally, red in CI case study
+    ref: ci-clean-cache
+  - id: ev-kk-011
+    type: decision-record
+    title:
+      tr: CI ve yayın modeli karar kaydı
+      en: CI and release model decision record
+    ref: kk-011
+  - id: ev-m-ci-cache
+    type: measurement-report
+    title:
+      tr: Temiz önbellekli CI doğrulama ölçümü
+      en: Clean-cache CI verification measurement
+    ref: o-ci-clean-cache
+  - id: ev-cert-java
+    type: certificate
+    title:
+      tr: Java ve Android Yazılım Uzmanlığı sertifikası
+      en: Java and Android Software Expertise certificate
+    ref: java-android-expertise

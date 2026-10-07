@@ -1,0 +1,82 @@
+site:
+  title: "{page} — {name}"
+  descriptionProfile: "{name}: mesleki profil, deneyim ve kanıta bağlı yetenekler."
+  descriptionProjects: "{name}: projeler, teknik kararlar ve ölçülen sonuçlar."
+  descriptionProject: "{project}: çözülmek istenen sorun, karar, bedel ve ölçülen sonuç."
+  descriptionPrivacy: "Bu sitede çerezlerin, ziyaretçi bilgilerinin ve canlı sistem durum isteğinin nasıl ele alındığı."
+  descriptionNotFound: "Aradığınız sayfa bulunamadı. Profile dönerek devam edebilirsiniz."
+nav:
+  profile: "Profil"
+  projects: "Projeler"
+  privacy: "Gizlilik"
+  mainLabel: "Ana gezinme"
+  skipLink: "Ana içeriğe geç"
+language:
+  switchLabel: "Siteyi {language} görüntüle"
+  tr: "Türkçe"
+  en: "İngilizce"
+theme:
+  toggle: "Açık ve koyu tema arasında geçiş yap"
+  light: "Açık tema"
+  dark: "Koyu tema"
+actions:
+  pdf: "Özgeçmişi PDF olarak indir"
+profile:
+  strongestEvidence: "En güçlü kanıtlar"
+  skills: "Yetenekler"
+  experience: "Deneyim"
+  projects: "Projeler"
+  education: "Eğitim"
+  certificates: "Sertifikalar"
+  skillsNote: "Her yetenek en az bir kanıta bağlıdır. Kanıtı olmayan yetenek burada yer almaz."
+table:
+  skill: "Yetenek"
+  years: "Yıl"
+  evidence: "Kanıt"
+evidence:
+  project: "Proje"
+  caseStudy: "Vaka anlatımı"
+  certificate: "Sertifika"
+  decisionRecord: "Karar kaydı"
+  measurementReport: "Ölçüm raporu"
+  repository: "Kod deposu"
+dates:
+  present: "bugün"
+certificates:
+  inProgress: "Devam ediyor"
+projects:
+  heading: "Projeler"
+  intro: "Projelerin arkasındaki sorunlar, teknik tercihler ve sonuçlar; her iddia, incelenebilir bir kanıtla birlikte."
+caseStudy:
+  problem: "Sorun"
+  decision: "Karar"
+  cost: "Bedel"
+  result: "Ölçülen sonuç"
+  metrics: "Ölçümler"
+  source: "Kaynak"
+  measurementReport: "Ölçüm raporu"
+  repository: "Kod deposu"
+  backToProjects: "Projelere dön"
+  noCaseStudy: "Bu proje için henüz bir vaka anlatımı yayımlanmadı."
+status:
+  neutral: "Canlı sistem"
+  up: "Canlı sistem çalışıyor"
+  down: "Canlı sistem şu an kapalı"
+footer:
+  staticNotice: "Bu sayfa statik olarak sunulur; sistem kapalıyken de açılır."
+privacy:
+  title: "Gizlilik"
+  noCookies: "Profil sayfaları çerez oluşturmaz."
+  liveCookies: "Çerezler yalnızca canlı uygulama sayfalarında, oturumu yönetmek için kullanılır."
+  rateLimiting: "Ziyaretçinin IP adresi saklanmaz. İstek hızını sınırlamak için adresin gizli bir anahtarla üretilen özeti sınırlı bir süre tutulur."
+  localAssets: "Yazı tipleri ve betikler bu siteden sunulur; bunlar için üçüncü taraflara istek gönderilmez."
+  statusRequest: "Canlı sistem rozeti, sistemin durumunu öğrenmek için API'ye çerez göndermeden tek bir istek yapar. JavaScript kapalıysa bu istek yapılmaz."
+notFound:
+  title: "Sayfa bulunamadı"
+  text: "Bu adreste bir sayfa yok. Bağlantı değişmiş olabilir; profile dönerek devam edebilirsiniz."
+  back: "Profile dön"
+print:
+  title: "{name} — Özgeçmiş"
+  description: "{name}: tek sayfalık özgeçmiş; deneyim, yetenekler ve kanıtlar."
+  site: "Site"
+  years: "{years} yıl"

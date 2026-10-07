@@ -1,0 +1,10 @@
+items:
+  - id: karabuk-computer-engineering
+    institution:
+      tr: Karabük Üniversitesi
+      en: Karabük University
+    degree:
+      tr: Bilgisayar Mühendisliği (yüzde otuz İngilizce)
+      en: Computer Engineering (30% taught in English)
+    startYear: 2012
+    endYear: 2018

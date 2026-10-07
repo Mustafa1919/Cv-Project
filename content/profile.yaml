@@ -1,0 +1,48 @@
+name: Mustafa Şenyurt
+targetRole:
+  tr: Yazılım Takım Lideri · Backend Developer
+  en: Software Team Lead · Backend Developer
+summary:
+  tr: >-
+    Java ve Spring Boot ile backend servisleri geliştiren, savunma sanayi ve kimlik erişim
+    cihazları projelerinde ekip yöneten yazılım mühendisiyim. Monolitik mimaride deneyimliyim;
+    mikroservis ve dağıtık sistemlere yöneliyorum.
+  en: >-
+    I am a software engineer who builds backend services with Java and Spring Boot and leads a
+    team on defense-industry and identity access device projects. I am experienced with
+    monolithic architecture and moving toward microservices and distributed systems.
+location:
+  tr: Ankara, Türkiye
+  en: Ankara, Türkiye
+workPreference:
+  tr: Mimari ağırlıklı backend ve dağıtık sistem rolleri
+  en: Architecture-focused backend and distributed systems roles
+links:
+  - id: github
+    label:
+      tr: GitHub
+      en: GitHub
+    url: https://github.com/Mustafa1919
+  - id: linkedin
+    label:
+      tr: LinkedIn
+      en: LinkedIn
+    url: https://www.linkedin.com/in/mustafa-%C5%9Fenyurt-b44090159
+  - id: kaggle
+    label:
+      tr: Kaggle
+      en: Kaggle
+    url: https://www.kaggle.com/msenyurt
+highlights:
+  - evidence: ev-workfollowup
+    text:
+      tr: Kiracı yalıtımı veritabanı satır düzeyi güvenlikle sağlanan çok kiracılı platform.
+      en: Multi-tenant platform whose tenant isolation relies on database row-level security.
+  - evidence: ev-ci-case
+    text:
+      tr: Yerelde geçip CI'da kırılan derlemenin nedenini temiz ortamda yeniden üretip düzelttim.
+      en: Reproduced in a clean environment and fixed a build that passed locally but broke in CI.
+  - evidence: ev-vitrin
+    text:
+      tr: Bu siteyi de kapsayan açık kodlu sistem; kararlar ve ölçümler kaynağıyla birlikte.
+      en: The open source system behind this site; decisions and measurements with their sources.

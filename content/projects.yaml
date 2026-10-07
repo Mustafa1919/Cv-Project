@@ -1,0 +1,43 @@
+items:
+  - id: workfollowup
+    name: WorkFollowUp
+    summary:
+      tr: >-
+        Çok kiracılı iş takip platformu: Java, Spring Boot, PostgreSQL satır düzeyi güvenlik,
+        outbox ile Kafka, React. Bilerek modüler monolit; kararlar ADR olarak kayıtlı.
+      en: >-
+        A multi-tenant work tracking platform: Java, Spring Boot, PostgreSQL row-level security,
+        Kafka through an outbox, React. A modular monolith on purpose; decisions recorded as ADRs.
+    repository: https://github.com/Mustafa1919/WorkFollowUp
+    skills:
+      - java
+      - spring-boot
+      - postgresql
+  - id: cv-vitrin
+    name: Cv-Project
+    summary:
+      tr: >-
+        Bu sitenin kaynak deposu: gateway, ES256 JWT, Redis hız sınırı, OpenTelemetry, Docker
+        Compose. Canlı sunucu henüz yok; yerel provalar öyle etiketlenir.
+      en: >-
+        This site's source repository: gateway, ES256 JWT, Redis rate limiting, OpenTelemetry,
+        Docker Compose. No live server yet; local rehearsals are labeled as such.
+    repository: https://github.com/Mustafa1919/Cv-Project
+    skills:
+      - java
+      - spring-security
+      - ci-release
+  - id: vetapp
+    name: VetApp
+    summary:
+      tr: >-
+        Veteriner yönetim sistemi (2023): Spring Boot, PostgreSQL, JWT ile doktor ve sahip
+        rolleri, Docker. İlk dönem bir çalışma.
+      en: >-
+        A veterinary management system (2023): Spring Boot, PostgreSQL, doctor and owner roles
+        with JWT, Docker. An early piece of work.
+    repository: https://github.com/Mustafa1919/vetapp
+    skills:
+      - java
+      - spring-boot
+      - spring-security

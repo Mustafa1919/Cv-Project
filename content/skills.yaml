@@ -1,0 +1,32 @@
+items:
+  - id: java
+    name: Java
+    years: 7
+    evidence:
+      - ev-workfollowup-repo
+      - ev-vitrin-repo
+      - ev-vetapp-repo
+      - ev-cert-java
+  - id: spring-boot
+    name: Spring Boot
+    years: 5
+    evidence:
+      - ev-workfollowup
+      - ev-vetapp
+  - id: spring-security
+    name: Spring Security ve JWT
+    years: 4
+    evidence:
+      - ev-vetapp
+      - ev-vitrin
+  - id: postgresql
+    name: PostgreSQL
+    years: 5
+    evidence:
+      - ev-workfollowup
+  - id: ci-release
+    name: CI/CD ve yayın hattı
+    years: 1
+    evidence:
+      - ev-ci-case
+      - ev-kk-011
