@@ -34,6 +34,12 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
     steps:
+      # First step on purpose: checkout cleans untracked files, so it must run before the download.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: deploy/site
+
       - name: Validate SHA and find successful CI run
         id: ci
         run: |
